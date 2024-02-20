@@ -96,7 +96,7 @@ RP_final  <- RP %>% filter(DEPT %in% c("75","92","93","94")) %>%
 
 ```{r eval=FALSE, include=FALSE}
 # Par exemple pour les 2 premières bases avec "subset":
-RP_Paris <- subset(RP, COMMUNE == "75056")
+RP_Paris <- subset(RP, DEPT == "75")
 RP_indiv <- subset(RP, select=c("AEMMR", "AGED", "AGER20", "AGEREV","AGEREVQ",
                                 "ANAI", "ANEMR","APAF","COUPLE","CS1","DIPL",
                                 "DNAI","EMPL","ETUD","ILETUD","ILT","IMMI",
