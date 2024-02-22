@@ -115,8 +115,10 @@ saveRDS(object = meta, file = "data/meta.Rdata")
 ```
 
 ```{r include=FALSE}
- # Suppression du fichier RP trop lourd
+# Suppression du fichier RP trop lourd
 rm(RP)
+# Appel de la table RP_final
+RP_final <- readRDS(file ="data/RP_final.Rdata") 
 ```
 
 
