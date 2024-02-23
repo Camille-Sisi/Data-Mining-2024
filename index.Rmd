@@ -1,7 +1,7 @@
 ---
 title: "DATA MINING"
 author: Camille Signoretto, Maîtresse de conférences en économie, Université Paris Cité
-date: "`r Sys.Date()`"
+date: "Février-juin 2024"
 subtitle: "Master Meci - Parcours PISE et CCESE - Option Data"
 documentclass: book
 link-citations: true

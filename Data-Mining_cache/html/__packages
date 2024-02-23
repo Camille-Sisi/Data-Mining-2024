@@ -11,3 +11,6 @@ forcats
 lubridate
 data.table
 gt
+naniar
+rstatix
+janitor

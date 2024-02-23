@@ -23,7 +23,6 @@
 <meta name="author" content="Camille Signoretto, Maîtresse de conférences en économie, Université Paris Cité" />
 
 
-<meta name="date" content="2024-02-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -196,26 +195,31 @@ code span.wa { color: #bf0303; } /* Warning */
  [7] &quot;COUPLE&quot;    &quot;CS1&quot;       &quot;DEPT&quot;      &quot;ETUD&quot;      &quot;IMMI&quot;      &quot;INAI&quot;     
 [13] &quot;INATC&quot;     &quot;IPONDI&quot;    &quot;MOCO&quot;      &quot;MODV&quot;      &quot;NAIDT&quot;     &quot;ORIDT&quot;    
 [19] &quot;REGION&quot;    &quot;SEXE&quot;      &quot;STAT_CONJ&quot; &quot;TACT&quot;      &quot;TACTD16&quot;  </code></pre>
-<p>A part les variables d’âge <code>AGED</code> et <code>AGEREV</code>, de date de naissance <code>ANAI</code> et de pondération <code>IPONDI</code>, toutes les autres variables devraient en format “factor”.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="03-Manipulation-variables.html#cb18-1" tabindex="-1"></a>RP_final <span class="ot">&lt;-</span> RP_final <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">AGER20=</span><span class="fu">as.factor</span>(AGER20),</span>
-<span id="cb18-2"><a href="03-Manipulation-variables.html#cb18-2" tabindex="-1"></a>                                <span class="at">AGEREVQ=</span><span class="fu">as.factor</span>(AGEREVQ),</span>
-<span id="cb18-3"><a href="03-Manipulation-variables.html#cb18-3" tabindex="-1"></a>                                <span class="at">CATPC=</span><span class="fu">as.factor</span>(CATPC),</span>
-<span id="cb18-4"><a href="03-Manipulation-variables.html#cb18-4" tabindex="-1"></a>                                <span class="at">COUPLE=</span><span class="fu">as.factor</span>(COUPLE),</span>
-<span id="cb18-5"><a href="03-Manipulation-variables.html#cb18-5" tabindex="-1"></a>                                <span class="at">CS1=</span><span class="fu">as.factor</span>(CS1),</span>
-<span id="cb18-6"><a href="03-Manipulation-variables.html#cb18-6" tabindex="-1"></a>                                <span class="at">DEPT=</span><span class="fu">as.factor</span>(DEPT),</span>
-<span id="cb18-7"><a href="03-Manipulation-variables.html#cb18-7" tabindex="-1"></a>                                <span class="at">ETUD=</span><span class="fu">as.factor</span>(ETUD),</span>
-<span id="cb18-8"><a href="03-Manipulation-variables.html#cb18-8" tabindex="-1"></a>                                <span class="at">IMMI=</span><span class="fu">as.factor</span>(IMMI),</span>
-<span id="cb18-9"><a href="03-Manipulation-variables.html#cb18-9" tabindex="-1"></a>                                <span class="at">INAI=</span><span class="fu">as.factor</span>(INAI),</span>
-<span id="cb18-10"><a href="03-Manipulation-variables.html#cb18-10" tabindex="-1"></a>                                <span class="at">INATC=</span><span class="fu">as.factor</span>(INATC),</span>
-<span id="cb18-11"><a href="03-Manipulation-variables.html#cb18-11" tabindex="-1"></a>                                <span class="at">MOCO=</span><span class="fu">as.factor</span>(MOCO),</span>
-<span id="cb18-12"><a href="03-Manipulation-variables.html#cb18-12" tabindex="-1"></a>                                <span class="at">MODV=</span><span class="fu">as.factor</span>(MODV),</span>
-<span id="cb18-13"><a href="03-Manipulation-variables.html#cb18-13" tabindex="-1"></a>                                <span class="at">NAIDT=</span><span class="fu">as.factor</span>(NAIDT),</span>
-<span id="cb18-14"><a href="03-Manipulation-variables.html#cb18-14" tabindex="-1"></a>                                <span class="at">ORIDT=</span><span class="fu">as.factor</span>(ORIDT),</span>
-<span id="cb18-15"><a href="03-Manipulation-variables.html#cb18-15" tabindex="-1"></a>                                <span class="at">REGION=</span><span class="fu">as.factor</span>(REGION),</span>
-<span id="cb18-16"><a href="03-Manipulation-variables.html#cb18-16" tabindex="-1"></a>                                <span class="at">SEXE=</span><span class="fu">as.factor</span>(SEXE),</span>
-<span id="cb18-17"><a href="03-Manipulation-variables.html#cb18-17" tabindex="-1"></a>                                <span class="at">STAT_CONJ=</span><span class="fu">as.factor</span>(STAT_CONJ),</span>
-<span id="cb18-18"><a href="03-Manipulation-variables.html#cb18-18" tabindex="-1"></a>                                <span class="at">TACT=</span><span class="fu">as.factor</span>(TACT),</span>
-<span id="cb18-19"><a href="03-Manipulation-variables.html#cb18-19" tabindex="-1"></a>                                <span class="at">TACTD16=</span><span class="fu">as.factor</span>(TACTD16))</span></code></pre></div>
+<p>A part les variables d’âge <code>AGED</code> et <code>AGEREV</code>, de date de naissance <code>ANAI</code> et de pondération <code>IPONDI</code>, toutes les autres variables devraient en format “factor”. On peut soit les transformer une par une avec la fonctino <code>mutate()</code>, ce qui est vite fastidieux ; soit créer un vecteur avec les noms de ces variables et lui appliquer la fonctino <code>lapply()</code> comme ci-dessous :</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="03-Manipulation-variables.html#cb18-1" tabindex="-1"></a><span class="co"># RP_final &lt;- RP_final %&gt;% mutate(AGER20=as.factor(AGER20),</span></span>
+<span id="cb18-2"><a href="03-Manipulation-variables.html#cb18-2" tabindex="-1"></a><span class="co">#                                 AGEREVQ=as.factor(AGEREVQ),</span></span>
+<span id="cb18-3"><a href="03-Manipulation-variables.html#cb18-3" tabindex="-1"></a><span class="co">#                                 CATPC=as.factor(CATPC),</span></span>
+<span id="cb18-4"><a href="03-Manipulation-variables.html#cb18-4" tabindex="-1"></a><span class="co">#                                 COUPLE=as.factor(COUPLE),</span></span>
+<span id="cb18-5"><a href="03-Manipulation-variables.html#cb18-5" tabindex="-1"></a><span class="co">#                                 CS1=as.factor(CS1),</span></span>
+<span id="cb18-6"><a href="03-Manipulation-variables.html#cb18-6" tabindex="-1"></a><span class="co">#                                 DEPT=as.factor(DEPT),</span></span>
+<span id="cb18-7"><a href="03-Manipulation-variables.html#cb18-7" tabindex="-1"></a><span class="co">#                                 ETUD=as.factor(ETUD),</span></span>
+<span id="cb18-8"><a href="03-Manipulation-variables.html#cb18-8" tabindex="-1"></a><span class="co">#                                 IMMI=as.factor(IMMI),</span></span>
+<span id="cb18-9"><a href="03-Manipulation-variables.html#cb18-9" tabindex="-1"></a><span class="co">#                                 INAI=as.factor(INAI),</span></span>
+<span id="cb18-10"><a href="03-Manipulation-variables.html#cb18-10" tabindex="-1"></a><span class="co">#                                 INATC=as.factor(INATC),</span></span>
+<span id="cb18-11"><a href="03-Manipulation-variables.html#cb18-11" tabindex="-1"></a><span class="co">#                                 MOCO=as.factor(MOCO),</span></span>
+<span id="cb18-12"><a href="03-Manipulation-variables.html#cb18-12" tabindex="-1"></a><span class="co">#                                 MODV=as.factor(MODV),</span></span>
+<span id="cb18-13"><a href="03-Manipulation-variables.html#cb18-13" tabindex="-1"></a><span class="co">#                                 NAIDT=as.factor(NAIDT),</span></span>
+<span id="cb18-14"><a href="03-Manipulation-variables.html#cb18-14" tabindex="-1"></a><span class="co">#                                 ORIDT=as.factor(ORIDT),</span></span>
+<span id="cb18-15"><a href="03-Manipulation-variables.html#cb18-15" tabindex="-1"></a><span class="co">#                                 REGION=as.factor(REGION),</span></span>
+<span id="cb18-16"><a href="03-Manipulation-variables.html#cb18-16" tabindex="-1"></a><span class="co">#                                 SEXE=as.factor(SEXE),</span></span>
+<span id="cb18-17"><a href="03-Manipulation-variables.html#cb18-17" tabindex="-1"></a><span class="co">#                                 STAT_CONJ=as.factor(STAT_CONJ),</span></span>
+<span id="cb18-18"><a href="03-Manipulation-variables.html#cb18-18" tabindex="-1"></a><span class="co">#                                 TACT=as.factor(TACT),</span></span>
+<span id="cb18-19"><a href="03-Manipulation-variables.html#cb18-19" tabindex="-1"></a><span class="co">#                                 TACTD16=as.factor(TACTD16))</span></span>
+<span id="cb18-20"><a href="03-Manipulation-variables.html#cb18-20" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="03-Manipulation-variables.html#cb18-21" tabindex="-1"></a>col_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AGER20&quot;</span>, <span class="st">&quot;AGEREVQ&quot;</span>, <span class="st">&quot;CATPC&quot;</span>, <span class="st">&quot;COUPLE&quot;</span>, <span class="st">&quot;CS1&quot;</span>, <span class="st">&quot;DEPT&quot;</span>, <span class="st">&quot;ETUD&quot;</span>, <span class="st">&quot;IMMI&quot;</span> , <span class="st">&quot;INAI&quot;</span> , <span class="st">&quot;INATC&quot;</span> ,</span>
+<span id="cb18-22"><a href="03-Manipulation-variables.html#cb18-22" tabindex="-1"></a>                <span class="st">&quot;MOCO&quot;</span>,  <span class="st">&quot;MODV&quot;</span>, <span class="st">&quot;NAIDT&quot;</span>, <span class="st">&quot;ORIDT&quot;</span>, <span class="st">&quot;REGION&quot;</span>, <span class="st">&quot;SEXE&quot;</span>,  <span class="st">&quot;STAT_CONJ&quot;</span>, <span class="st">&quot;TACT&quot;</span>, <span class="st">&quot;TACTD16&quot;</span>)</span>
+<span id="cb18-23"><a href="03-Manipulation-variables.html#cb18-23" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="03-Manipulation-variables.html#cb18-24" tabindex="-1"></a>RP_final[col_names] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(RP_final[col_names], factor)</span></code></pre></div>
 <p>On peut ensuite vérifier que ces variables sont bien des variables facteurs en regardant combien de modalités elles ont et quelles sont-elles. Par exemple, pour la variable <code>CATPC</code> :</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="03-Manipulation-variables.html#cb19-1" tabindex="-1"></a><span class="fu">nlevels</span>(RP_final<span class="sc">$</span>CATPC)</span></code></pre></div>
 <pre><code>[1] 3</code></pre>

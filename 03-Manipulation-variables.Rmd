@@ -13,28 +13,33 @@ RP_final %>%
   names()
 ```
 
-A part les variables d'âge `AGED` et `AGEREV`, de date de naissance `ANAI` et de pondération `IPONDI`, toutes les autres variables devraient en format "factor".
+A part les variables d'âge `AGED` et `AGEREV`, de date de naissance `ANAI` et de pondération `IPONDI`, toutes les autres variables devraient en format "factor". On peut soit les transformer une par une avec la fonctino `mutate()`, ce qui est vite fastidieux ; soit créer un vecteur avec les noms de ces variables et lui appliquer la fonctino `lapply()` comme ci-dessous :
 
 ```{r}
-RP_final <- RP_final %>% mutate(AGER20=as.factor(AGER20),
-                                AGEREVQ=as.factor(AGEREVQ),
-                                CATPC=as.factor(CATPC),
-                                COUPLE=as.factor(COUPLE),
-                                CS1=as.factor(CS1),
-                                DEPT=as.factor(DEPT),
-                                ETUD=as.factor(ETUD),
-                                IMMI=as.factor(IMMI),
-                                INAI=as.factor(INAI),
-                                INATC=as.factor(INATC),
-                                MOCO=as.factor(MOCO),
-                                MODV=as.factor(MODV),
-                                NAIDT=as.factor(NAIDT),
-                                ORIDT=as.factor(ORIDT),
-                                REGION=as.factor(REGION),
-                                SEXE=as.factor(SEXE),
-                                STAT_CONJ=as.factor(STAT_CONJ),
-                                TACT=as.factor(TACT),
-                                TACTD16=as.factor(TACTD16))
+# RP_final <- RP_final %>% mutate(AGER20=as.factor(AGER20),
+#                                 AGEREVQ=as.factor(AGEREVQ),
+#                                 CATPC=as.factor(CATPC),
+#                                 COUPLE=as.factor(COUPLE),
+#                                 CS1=as.factor(CS1),
+#                                 DEPT=as.factor(DEPT),
+#                                 ETUD=as.factor(ETUD),
+#                                 IMMI=as.factor(IMMI),
+#                                 INAI=as.factor(INAI),
+#                                 INATC=as.factor(INATC),
+#                                 MOCO=as.factor(MOCO),
+#                                 MODV=as.factor(MODV),
+#                                 NAIDT=as.factor(NAIDT),
+#                                 ORIDT=as.factor(ORIDT),
+#                                 REGION=as.factor(REGION),
+#                                 SEXE=as.factor(SEXE),
+#                                 STAT_CONJ=as.factor(STAT_CONJ),
+#                                 TACT=as.factor(TACT),
+#                                 TACTD16=as.factor(TACTD16))
+
+col_names <- c("AGER20", "AGEREVQ", "CATPC", "COUPLE", "CS1", "DEPT", "ETUD", "IMMI" , "INAI" , "INATC" ,
+                "MOCO",  "MODV", "NAIDT", "ORIDT", "REGION", "SEXE",  "STAT_CONJ", "TACT", "TACTD16")
+
+RP_final[col_names] <- lapply(RP_final[col_names], factor)
 ```
 
 On peut ensuite vérifier que ces variables sont bien des variables facteurs en regardant combien de modalités elles ont et quelles sont-elles. Par exemple, pour la variable `CATPC` :
@@ -169,4 +174,4 @@ Tab_com_TACT <- Tab_com_TACT %>%
                    pivot_wider(names_from = TACT_moda, values_from = n)
 Tab_com_TACT
 ```
-
+   
