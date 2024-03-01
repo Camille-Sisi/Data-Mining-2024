@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>DATA MINING</title>
+  <title>Section 4 Récapitulatig séance 1 - Data Wrangling | DATA MINING</title>
   <meta name="description" content="Titre du cours" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="DATA MINING" />
+  <meta property="og:title" content="Section 4 Récapitulatig séance 1 - Data Wrangling | DATA MINING" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Titre du cours" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="DATA MINING" />
+  <meta name="twitter:title" content="Section 4 Récapitulatig séance 1 - Data Wrangling | DATA MINING" />
   
   <meta name="twitter:description" content="Titre du cours" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="00-Presentation.html"/>
+<link rel="prev" href="03-Manipulation-variables.html"/>
+<link rel="next" href="05-Questions-fouille-donnees.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -199,12 +199,29 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">DATA MINING</h1>
-<h2 class="subtitle"><em>Master Meci - Parcours PISE et CCESE - Option Data</em></h2>
-<p class="author"><em>Camille Signoretto, Maîtresse de conférences en économie, Université Paris Cité</em></p>
-<p class="date"><em>Février-juin 2024</em></p>
+<div id="c04-Récapitulatif" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Section 4</span> Récapitulatig séance 1 - Data Wrangling<a href="04-Récapitulatif.html#c04-Récapitulatif" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div align="justify">
+
+<div id="ce-quon-a-appris" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Ce qu’on a appris<a href="04-Récapitulatif.html#ce-quon-a-appris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cette séance sur la préparation et nettoyage d’une base de données - phase appelée aussi Data Wrangling - nous a permis d’apprendre à :</p>
+<ul>
+<li>charger des bases de données, y compris dans le cas d’un fichier lourd avec la fonction <code>fread()</code> du package <strong><code>data.table</code></strong> ;</li>
+<li>repérer les informations intéressantes contenues dans cette base, notamment en allant voir le fichier “annexe”, celui des métadonneés (ou dictionnaire des codes) ; mais ce type de fichier n’est pas toujours disponible, si vous avez des données d’une entreprise, peut-être que l’information décrivant cette base est plus informelle, ou même si vous “aspirez” des données <em>via</em> le web vous n’aurez alors pas du tout d’information décrivant la base… :</li>
+<li>manipuler la base de données : en identifiant d’abord le format des données, en sélectionnant un champ différent (moins de lignes/d’observations), et/ou des variables spécifiques (moins de colonnes/d’informations), avec les fonctions <code>filter()</code>, <code>select()</code>, <code>subset()</code>, <code>pivot_wider()</code>, <code>pivot_longer()</code>, <code>unique()</code>, <code>arrange()</code>, etc.;</li>
+<li>manipuler des variables : en identifiant le format des variables, en les mettant dans le bon format, en (re)travaillant les modalités d’une variable qualitative (avec notamment les fonctions <code>mutate()</code>, <code>case_when()</code>, <code>as.factor()</code>, ou encore celles du package <strong><code>factors</code></strong>), en détectant/visualisant/gérant les valeurs manquantes d’une variable quantitative avec entre autres le package <strong><code>naniar</code></strong>, en détectant/visualiant/gérant les valeurs aberrantes d’une variable quantitative à partir en particulier des statistiques de la “boîte à moustaches” (fonction <code>geom_boxplot()</code> à utiliser avec <code>ggplot()</code>, fonction <code>boxplot.stats()</code>), et enfin, en transformant une variable quantitative en variable qualitative (avec les fonctions <code>cut()</code> et <code>fancycut()</code>).</li>
+</ul>
+<p>L’usage pour cette phase du langage <code>dplyr</code> ou plus généralement du <code>tidyverse</code> est particulièrement conseillée, cela permet d’“enchaîner” des fonctions en une seule instruction.</p>
 </div>
+<div id="enregistrement-des-tables" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Enregistrement des tables<a href="04-Récapitulatif.html#enregistrement-des-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Et voilà, on a bien “trituré” ces deux bases de données, maintenant on peut les enregistrer dans notre projet pour pouvoir les réutiliser lors de la prochaine séance.</p>
+
+</div>
+</div>
+
+
 
 <script src="js/tidyverse.js"></script>
             </section>
@@ -212,8 +229,8 @@ code span.wa { color: #bf0303; } /* Warning */
           </div>
         </div>
       </div>
-
-<a href="00-Presentation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="03-Manipulation-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="05-Questions-fouille-donnees.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -245,7 +262,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Camille-Sisi/Data-Mining-2024/master/index.Rmd",
+"link": "https://github.com/Camille-Sisi/Data-Mining-2024/master/04-Récapitulatif.Rmd",
 "text": "Source"
 },
 "history": {
