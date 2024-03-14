@@ -13,8 +13,7 @@ RP_final %>%
   names()
 ```
 
-A part les variables d'âge `AGED` et `AGEREV`, de date de naissance `ANAI` et de pondération `IPONDI`, toutes les autres variables devraient en format "factor".
-
+A part les variables d'âge `AGED` et `AGEREV`, de date de naissance `ANAI` et de pondération `IPONDI`, toutes les autres variables devraient en format "factor". Deux façons de les transformer, soit vous changer les variables une à une en utilisant les fonctions `mutate()` et `as.factor()` ; soit vous créer une liste avec le nom des variables dont le format doit être transformer et vous utilisez la fonction `lapply()` en l'appliquant à cette liste de variables :
 ```{r}
 RP_final <- RP_final %>% mutate(AGER20=as.factor(AGER20),
                                 AGEREVQ=as.factor(AGEREVQ),
@@ -35,6 +34,11 @@ RP_final <- RP_final %>% mutate(AGER20=as.factor(AGER20),
                                 STAT_CONJ=as.factor(STAT_CONJ),
                                 TACT=as.factor(TACT),
                                 TACTD16=as.factor(TACTD16))
+
+# 2nde méthode
+# list_var <- c("AGER20", "AGEREVQ", "CATPC", "COUPLE", "CS1", "DEPT", "ETUD", "IMMI", "INAI", "INATC",
+#               "MOCO", "MODV", "NAIDT", "REGION", "SEXE", "STAT_CONJ", "TACT", "TACTD16")
+# RP_final[, list_var] <- lapply(RP_final[, list_var], factor)
 ```
 
 On peut ensuite vérifier que ces variables sont bien des variables facteurs en regardant combien de modalités elles ont et quelles sont-elles. Par exemple, pour la variable `CATPC` :
@@ -108,8 +112,10 @@ Si l'on veut changer l'ordre des modalités, qui s'afficheront comme ci-dessus d
 ```{r}
 # install.package("forcats")
 library(forcats)
-RP_final <- RP_final %>% mutate(TACT_moda = fct_relevel(TACT_moda, 
-                                                        c("Actifs en emploi","Chômeurs","Retraités", "Autres inactifs")))
+RP_final <- RP_final %>% mutate(TACT_moda = 
+                                  fct_relevel(TACT_moda, 
+                                              c("Actifs en emploi","Chômeurs",
+                                                "Retraités", "Autres inactifs")))
 levels(RP_final$TACT_moda)
 ```
 
@@ -229,7 +235,8 @@ dvf_Paris %>%  gg_miss_var()
 On peut aussi réaliser des graphiques montrant le nombre de valeurs manquantes pour l'ensemble des variables numériques de la base, en fonction d'une autre variable (y compris de nature 'factor'), avec l'argument `fct=` dans `gg_miss_fct()`. Cela est intéressant pour voir si certaines valeurs manquantes des variables sont liées à des valeurs observées d'autres variables, qu'elles soient quantitatives ou qualitatives (et dans ce cas, est-ce que les valeurs manquantes se retrouvent davantage dans certaines modalités plus que d'autres ?). Par exemple, ici, selon le type de lots, ou la surface du logement :
 
 ```{r warning=FALSE}
-# on filtre sur les variables numériques car on ne veut pas que la sortie nous affiche des variables comme le code postal.
+# on filtre sur les variables numériques car on ne veut pas que la sortie nous affiche 
+# des variables comme le code postal.
 dvf_Paris %>% select(where(is.numeric), nombre_lots) %>%
   gg_miss_fct(fct = nombre_lots)
 dvf_Paris %>% select(where(is.numeric), -(code_postal)) %>%
@@ -315,7 +322,8 @@ dvf_Paris %>%
 Cela nous permet de comprendre qu'il y a probablement encore quelques filtres à effectuer pour avoir une base propre et cohérente, non seulement sur les valeurs aberrantes - on va y venir - mais aussi sur les valeurs minimum. Peut-on ainsi vendre un appartement avec 0 pièce principale ? Ou d'une surface d'1 m2 ? Ou pour 0€ ? On va donc filtrer la base sur ces éléments. De plus, comme on a vu qu'il y avait beaucoup de valeurs manquantes sur les variables reliées aux numéros de lot supérieur à 3, on va retenir dans la base les seules ventes avec des lots compris entre 1 et 2 (en gros, par exemple, un appartement - lot 1 - ou un appartement et une cave - lot 2).
 
 ```{r}
-# Filtre pour réduire la base et la rendre plus propre, et sélection en supprimant les variables qui ne nous intéressents plus
+# Filtre pour réduire la base et la rendre plus propre, et sélection en supprimant les 
+# variables qui ne nous intéressents plus
 dvf_Paris <- dvf_Paris %>% 
   filter(nombre_lots %in% c(1,2) & nombre_pieces_principales>0 &
            surface_reelle_bati>=9 & valeur_fonciere>0) %>% 
@@ -332,7 +340,6 @@ dvf_Paris %>%
                     show=c("n","mean", "median", "min", "max","q1", "q3","iqr")) %>% 
   gt() %>% 
   fmt_number(columns = 3:8, sep_mark = " ", decimals = 1)
-
 ```
 
 On peut également faire quelques graphs sur cette pour mieux visualiser ces valeurs aberrantes, un histogramme, ou une "boîte à moustache" (seule ou en relation avec une autre variable) :
@@ -397,18 +404,17 @@ Dans les graphiques, en particulier les boîtes à moustache, on peut les suppri
 
 ```{r}
 dvf_Paris %>%  ggplot() + aes(y = px_m2) + 
-  geom_boxplot(outlier.shape = NA) + coord_flip(ylim = c(quantile(dvf_Paris$px_m2, 0.01),quantile(dvf_Paris$px_m2, 0.99))) +
+  geom_boxplot(outlier.shape = NA) + 
+  coord_flip(ylim = c(quantile(dvf_Paris$px_m2, 0.01),quantile(dvf_Paris$px_m2, 0.99))) +
   labs(title = "Distribution des valeurs foncières en euros", y="", x="", 
-       caption="Rq : les valeurs en-dessous du 1% de la distribution et celles au-dessus
-       du 99% de la distribution ne sont pas \naffichées sur le graphique.") +
+       caption="Rq : les valeurs en-dessous du 1% de la distribution et celles au-dessus du 99% de la distribution ne sont pas \naffichées sur le graphique.") +
   theme(plot.caption = element_text(hjust=0))
 
 dvf_Paris %>% ggplot() + aes(px_m2) + 
-  geom_histogram(bins=10000) +  coord_cartesian(xlim=c(quantile(dvf_Paris$px_m2, 0.01),
-                                                       quantile(dvf_Paris$px_m2, 0.99))) +
+  geom_histogram(bins=10000) + coord_cartesian(xlim=c(quantile(dvf_Paris$px_m2, 0.01),
+                                                      quantile(dvf_Paris$px_m2, 0.99))) +
   labs(title = "Distribution des valeurs foncières en euros", y="", x="Prix au m2",
-       caption="Rq : les valeurs en-dessous du 1% de la distribution et celles au-dessus 
-       du 99% de la distribution ne sont pas \naffichées sur le graphique.") +
+       caption="Rq : les valeurs en-dessous du 1% de la distribution et celles au-dessus du 99% de la distribution ne sont pas \naffichées sur le graphique.") +
   theme(plot.caption = element_text(hjust=0))
 ```
 
@@ -418,7 +424,8 @@ dvf_Paris %>% ggplot() + aes(px_m2) +
   geom_histogram(bins=20000) +  coord_cartesian(xlim=c(quantile(dvf_Paris$px_m2, 0.05),
                                                        quantile(dvf_Paris$px_m2, 0.95))) +
   labs(title = "Distribution des valeurs foncières en euros", y="", x="Prix au m2",
-       caption="Rq : les valeurs en-dessous du 5% de la distribution et celles au-dessus du 95% de la distribution ne sont pas affichées \nsur le graphique.") +
+       caption="Rq : les valeurs en-dessous du 5% de la distribution et celles au-dessus 
+       du 95% de la distribution ne sont pas \naffichées sur le graphique.") +
   theme(plot.caption = element_text(hjust=0))
 ```
 
@@ -443,7 +450,10 @@ dvf_Paris %>% tabyl(px_m2_cat) %>% adorn_pct_formatting() %>%
 
 On a une classe majoritaire (du Q1 à la moyenne), mais cela nous permet de distinguer 2 classes pour lesquelles le montant du prix au m2 est soit plutôt faible, soit plutôt élevé.
 
-À noter que si la variable quantitative en question a des valeurs manquantes, il faudra utiliser la fonction `fancycut()` ou `wafflecut()` du package **`fancycut`**, l'inconvénient est que cela nous oblige à indiquer les valeurs des différents indicateurs de la distribution.
+À noter que si la variable quantitative en question a des valeurs manquantes, il faudra utiliser la fonction `fancycut()` ou `wafflecut()` du package **`fancycut`**, l'inconvénient est que cela nous oblige à indiquer les valeurs des différents indicateurs de la distribution.  
+
+
+
 
 <!-- Pour trouver le même résultat que précédemment, le code serait alors le suivant : -->
 
