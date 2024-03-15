@@ -33,3 +33,11 @@ les-autres-options-graphiques-titres-échelles-des-axes-etc.
 code-minimal
 liens-utiles-pour-aller-plus-loin
 les-grands-principes-de-data-visualization
+c08-Ggplot-pratique
+exemple-de-la-construction-dun-graphique-pas-à-pas
+dautres-exemples-à-travers-des-exercices
+distribution-du-prix-au-m2-pour-les-appartements-parisiens-selon-lannée
+comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris
+evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris
+top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements
+à-vous-de-jouer

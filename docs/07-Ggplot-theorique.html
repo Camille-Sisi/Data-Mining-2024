@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="06-Fonctions.html"/>
-
+<link rel="next" href="08-Ggplot-pratique.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +51,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -204,6 +211,18 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="7.1.9" data-path="07-Ggplot-theorique.html"><a href="07-Ggplot-theorique.html#liens-utiles-pour-aller-plus-loin"><i class="fa fa-check"></i><b>7.1.9</b> Liens utiles pour aller plus loin</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="07-Ggplot-theorique.html"><a href="07-Ggplot-theorique.html#les-grands-principes-de-data-visualization"><i class="fa fa-check"></i><b>7.2</b> Les grands principes de data visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html"><i class="fa fa-check"></i><b>8</b> Data Mining et Data Visualization en pratique</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#exemple-de-la-construction-dun-graphique-pas-à-pas"><i class="fa fa-check"></i><b>8.1</b> Exemple de la construction d’un graphique pas à pas</a></li>
+<li class="chapter" data-level="8.2" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#dautres-exemples-à-travers-des-exercices"><i class="fa fa-check"></i><b>8.2</b> D’autres exemples à travers des exercices</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#distribution-du-prix-au-m2-pour-les-appartements-parisiens-selon-lannée"><i class="fa fa-check"></i><b>8.2.1</b> Distribution du prix au m2 pour les appartements parisiens, selon l’année</a></li>
+<li class="chapter" data-level="8.2.2" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#comparaison-des-montants-moyen-et-médian-du-prix-au-m2-par-arrondissement-de-paris"><i class="fa fa-check"></i><b>8.2.2</b> Comparaison des montants moyen et médian du prix au m2, par arrondissement de Paris</a></li>
+<li class="chapter" data-level="8.2.3" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#evolution-du-prix-médian-au-m2-des-ventes-dappartements-à-paris"><i class="fa fa-check"></i><b>8.2.3</b> Evolution du prix médian au m2 des ventes d’appartements à Paris</a></li>
+<li class="chapter" data-level="8.2.4" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#top-5-du-prix-au-m2-des-ventes-dappartements-selon-les-arrondissements"><i class="fa fa-check"></i><b>8.2.4</b> Top 5 du prix au m2 des ventes d’appartements selon les arrondissements</a></li>
+<li class="chapter" data-level="8.2.5" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#à-vous-de-jouer"><i class="fa fa-check"></i><b>8.2.5</b> À vous de “jouer” !</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -428,20 +447,14 @@ La figure ci-dessous est une bonne synthèse de la manière dont il faut program
 
 </div>
 </div>
-
-
-
-
-
-
 <script src="js/tidyverse.js"></script>
             </section>
 
           </div>
         </div>
       </div>
-<a href="06-Fonctions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="06-Fonctions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="08-Ggplot-pratique.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

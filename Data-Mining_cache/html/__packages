@@ -14,3 +14,6 @@ gt
 naniar
 rstatix
 janitor
+patchwork
+ggrepel
+plotly
