@@ -5,10 +5,10 @@
 Reprenons la base de données sur les demandes de valeurs foncières sur laquelle nous avons travaillé dans la section 3, et commençons notre analyse descriptive des informations présentes dans cette base en construisant des graphiques pour répondre à certaines questions relatives aux prix auquels se sont vendus les appartements de la ville de Paris entre 2019 et 2022. On pourra ainsi étudier l'évolution dans le temps de ces prix.
 ```{r}
 # Appelons la table si elle n'est pas déjà dans votre environnement
-dvf_Paris <- readRDS("data/dvf_Paris_1.Rdata")
+dvf_Paris_1 <- readRDS("data/dvf_Paris_1.Rdata")
 
 # Rappel des variables présentes et de leurs noms
-names(dvf_Paris)
+names(dvf_Paris_1)
 ```
 
 
@@ -21,18 +21,18 @@ Nous avons déjà vu ces deux graphiques précédemment, mais reprenons-les pour
 **D'abord**, on va créer une **boîte à moustache pour représenter la distribution de la variable `px_m2`**:
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
-dvf_Paris %>% ggplot() + aes(x = px_m2) + geom_boxplot()
+dvf_Paris_1 %>% ggplot() + aes(x = px_m2) + geom_boxplot()
 ```
 
 Comme il reste des valeurs aberrantes (cf. section 3.2.3. de la séance 1 de ce cours), il faut faire un minimum d'élagage sur cette variable, ce qu'on n'avait pas fait à la fin de cette séance. On va ainsi supprimer les observations pour lesquelles le prix au m2 est supérieur au 1% de la distribution et inférieur au 99% de la distribution, mais en faisant attention à prendre la distribution selon l'année pour que cela soit plus précis. Voici comment faire :
 ```{r}
 # On peut d'abord regarder quelles sont ces valeurs avec la ligne de code suivante : 
-# dvf_Paris %>% group_by(annee) %>% mutate(p_1=quantile(px_m2, 0.01), 
+# dvf_Paris_1 %>% group_by(annee) %>% mutate(p_1=quantile(px_m2, 0.01), 
 #p_99=quantile(px_m2, 0.99)) %>% select(annee, p_1, p_99) %>% unique()
 
 # On crée 2 variables selon l'année et on filtre ensuite, attention à utiliser le
 # "ungroup()" à la fin, en particulier parce qu'on remplace la base.
-dvf_Paris_1 <- dvf_Paris %>% 
+dvf_Paris_1 <- dvf_Paris_1 %>% 
   group_by(annee) %>% 
   mutate(p_1=quantile(px_m2, 0.01), p_99=quantile(px_m2, 0.99)) %>% 
   filter(px_m2>p_1 & px_m2<p_99) %>% 
@@ -598,10 +598,8 @@ Bien sûr, vous pouvez créer des fonctions sur ces graphiques ; puis "jouez" av
 
 
 
-
-
 ```{r eval=FALSE, include=FALSE}
-saveRDS(object = dvf_Paris,
-        file = "data/dvf_Paris_1.RDS")
+saveRDS(object = dvf_Paris_1,
+        file = "data/dvf_Paris_1.Rdata")
 ```
 
