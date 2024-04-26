@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 4 Récapitulatig séance 1 - Data Wrangling | DATA MINING</title>
+  <title>Section 12 Clustering : aspects théoriques | DATA MINING</title>
   <meta name="description" content="Titre du cours" />
   <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 4 Récapitulatig séance 1 - Data Wrangling | DATA MINING" />
+  <meta property="og:title" content="Section 12 Clustering : aspects théoriques | DATA MINING" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Titre du cours" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 4 Récapitulatig séance 1 - Data Wrangling | DATA MINING" />
+  <meta name="twitter:title" content="Section 12 Clustering : aspects théoriques | DATA MINING" />
   
   <meta name="twitter:description" content="Titre du cours" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="03-Manipulation-variables.html"/>
-<link rel="next" href="05-Questions-fouille-donnees.html"/>
+<link rel="prev" href="10-Intro-a-Shiny-exemples.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -272,42 +272,88 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="c04-Récapitulatif" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Section 4</span> Récapitulatig séance 1 - Data Wrangling<a href="04-Récapitulatif.html#c04-Récapitulatif" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="c11-Clustering-theorique" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Section 12</span> Clustering : aspects théoriques<a href="11-Clustering-theorique.html#c11-Clustering-theorique" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div align="justify">
 
-<div id="ce-quon-a-appris" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Ce qu’on a appris<a href="04-Récapitulatif.html#ce-quon-a-appris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Cette séance sur la préparation et nettoyage d’une base de données - phase appelée aussi Data Wrangling - nous a permis d’apprendre à :</p>
+Les méthodes de <strong>clustering</strong> (ou typologie, ou segmentation, ou encore classification en français<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>) appartiennent à la famille des algorithmes d’apprentissage non supervisé, car nous n’avons pas de variable de sortie ou variable-cible.<br />
+Ce sont justement les algorithmes qui vont chercher à organiser les observations en groupes ou classes dit “clusters” en fonction de variables quantitatives choisies en entrée/input dans le modèle. L’algorithme va ensuite chercher à ce que ces “clusters” soient à la fois le plus similaire possible à l’intérieur/en leur sein (forte “similarité intraclasse”, on cherche alors à <strong>minimiser l’inertie intraclasse</strong>) et le plus distinctif/différent des autres groupes/classes (faible “similarité interclasse”, on parlera de <strong>maximisation de l’inertie interclasse</strong>). Ces observations peuvent être des individus, des entreprises, ou comme ici pour nous, un niveau territorial (la commune).<br />
+
+<div align="center">
+<div class="float">
+<img src="images/Representation%20graphique%20Inertie%20clustering.png" alt="Représentation graphique Inertie totale, interclasse et intraclasse" />
+<div class="figcaption">Représentation graphique Inertie totale, interclasse et intraclasse</div>
+</div>
+<div align="center">
+<p><em>Source : document de cours accessible ici <a href="http://iml.univ-mrs.fr/~reboul/ADD4-MAB.pdf" class="uri">http://iml.univ-mrs.fr/~reboul/ADD4-MAB.pdf</a></em></p>
+<div align="justify">
+<p>Il y a deux principales méthodes de clustering : hiérarchique et non hiérarchique, la principale différence étant que pour la premiere on ne connaît pas par avance le nombre de groupes dans lesquels seront réparties nos observations ; alors que pour la seconde, on fixe au préalable le nombre de groupes.</p>
+<p>On va étudier ici deux exemples : pour le clustering hiérarchique, on va utiliser la méthode la plus courante - la classification ascendante hiérarchique (CAH) - qui utilise un algorithme ascendant, c’est-à-dire agglomératif (les classes sont construites par agglomérations successives des objets deux à deux ; cette méthode s’oppose aux algorithmes descendants ou divisifs) ; et pour le clustering non hiérarchique, la méthode également la plus utilisée - les centres-mobiles ou la méthodes des K-means (très légèrement différente). Pour d’autres exemples, vous pouvez vous référer respectivement aux pages 244-251, et 252-255, du manuel de référence du cours (Husson, 2018).</p>
+<div id="la-classification-ascendante-hiérarchique-cah" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> La classification ascendante hiérarchique (CAH)<a href="11-Clustering-theorique.html#la-classification-ascendante-hiérarchique-cah" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Voici une représentation générale d’un clustering hiérarhique :</p>
+<div align="center">
+<div class="float">
+<img src="images/Representation%20graphique%20clustering%20hi%C3%A9rarchique.png" alt="Représentation graphique clustering hiérarchique" />
+<div class="figcaption">Représentation graphique clustering hiérarchique</div>
+</div>
+<div align="center">
+<p><em>Source : document de cours accessible ici <a href="https://perso.univ-rennes1.fr/valerie.monbet/ExposesM2/2013/Classification2.pdf" class="uri">https://perso.univ-rennes1.fr/valerie.monbet/ExposesM2/2013/Classification2.pdf</a></em></p>
+<div align="justify">
+<p>Il y a en gros <strong>3 grandes étapes</strong> :</p>
 <ul>
-<li>charger des bases de données, y compris dans le cas d’un fichier lourd avec la fonction <code>fread()</code> du package <strong><code>data.table</code></strong> ;</li>
-<li>repérer les informations intéressantes contenues dans cette base, notamment en allant voir le fichier “annexe”, celui des métadonneés (ou dictionnaire des codes) ; mais ce type de fichier n’est pas toujours disponible, si vous avez des données d’une entreprise, peut-être que l’information décrivant cette base est plus informelle, ou même si vous “aspirez” des données <em>via</em> le web vous n’aurez alors pas du tout d’information décrivant la base… :</li>
-<li>manipuler la base de données : en identifiant d’abord le format des données, en sélectionnant un champ différent (moins de lignes/d’observations), et/ou des variables spécifiques (moins de colonnes/d’informations), avec les fonctions <code>filter()</code>, <code>select()</code>, <code>subset()</code>, <code>pivot_wider()</code>, <code>pivot_longer()</code>, <code>unique()</code>, <code>arrange()</code>, etc.;</li>
-<li>manipuler des variables : en identifiant le format des variables, en les mettant dans le bon format, en (re)travaillant les modalités d’une variable qualitative (avec notamment les fonctions <code>mutate()</code>, <code>case_when()</code>, <code>as.factor()</code>, ou encore celles du package <strong><code>factors</code></strong>), en détectant/visualisant/gérant les valeurs manquantes d’une variable quantitative avec entre autres le package <strong><code>naniar</code></strong>, en détectant/visualiant/gérant les valeurs aberrantes d’une variable quantitative à partir en particulier des statistiques de la “boîte à moustaches” (fonction <code>geom_boxplot()</code> à utiliser avec <code>ggplot()</code>, fonction <code>boxplot.stats()</code>), et enfin, en transformant une variable quantitative en variable qualitative (avec les fonctions <code>cut()</code> et <code>fancycut()</code>).</li>
+<li><p>une <em>première étape, facultative</em>, car cela dépend de la nature des données : on centre et réduit les variables, on dit également qu’on “standardise” les variables. Cela est indispensable quand les variables ont des unités différentes (le poids et la taille d’un individu) ; si elles ont des unités similaires (c’est notre cas ici), il faut choisir de le faire ou non. Souvent, on va choisir de “standardiser” car on peut avoir des variables avec des écarts-types importants ce qui peut créer un biais (en faveur de ces variables, c’est-à-dire en leur donnant un poids plus important dans l’analyse) lors de la construction de la matrice de distances.</p></li>
+<li><p>une <em>seconde étape consiste à créer une matrice des distances</em> (ou des dissimilarités) car la construction de l’arbre (cf. ci-dessous) repose sur les distances entre observations/individus : l’idée est de chercher les individus les plus proches ou les plus ressemblants ; on commence donc par calculer la matrice des distances des individus deux à deux, puis on rassemble les deux plus proches dans un nouvel élément ce qui crée une matrice des distances sur les n-1 individus, ensuite on réitère le processus - on crée une matrice des distances rassemblant les deux individus les plus proches dans un nouveau groupe, etc. - jusqu’à ce qu’on n’ait plus qu’un seul élément. Dans cette étape, on choisit le type de distance utilisé, c’est-à-dire le critère de ressemblance entre les individus. Sans rentrer ici plus dans les détails, la méthode de distance la plus utilisée et (ou car) la plus intuitive est la <strong>distance euclidienne</strong>. Mais par exemple, si nos variables ne sont pas mesurées en effectifs mais en proportion, il faudra plutôt utiliser la distance du khi-deux. Autre exemple, lorsque les variables seront qualitatives de type binaire (0/1), alors ce sera plutôt l’indice de similarité de Jaccard qui sera utilisé.</p></li>
+<li><p>enfin, la <em>troisième étape est la méthode d’agrégation</em> : dans la construction de la matrice de distance, après la 1ère étape (n-1 individus), ce seront progressivement des groupes d’individus dont on comparera la distance, il faut donc savoir comment calculer cette distance entre groupes (et non plus seulement entre individus) : est-ce qu’on prend le point représentant l’individu moyen du groupe ? Ou bien celui qui est à l’extrêmité du groupe ? Etc. Là aussi, il faut donc choisir cette méthode d’agrégation parmi un ensemble de méthodes (lien simple ou minimum, lien maximum, lien moyen, lien entre les centroïdes/centres de gravité ou barycentre, critère de Ward) : la plus utilisée est le critère de Ward, notamment lorsqu’on utilise une distance euclidienne dans l’étape précédente. Ce critère se base sur la décomposition de l’inertie totale (somme du carré des distances de chaque point au centre) en une inertie intraclasse et une inertie interclasse ; il consiste ensuite à minimiser la perte d’inertie intraclasse à chaque agrégation de classes, pour que les classes restent le plus homogène possible.</p></li>
 </ul>
-<p>L’usage pour cette phase du langage <code>dplyr</code> ou plus généralement du <code>tidyverse</code> est particulièrement conseillée, cela permet d’“enchaîner” des fonctions en une seule instruction.</p>
+<p>Un schéma de 3 de ces distances permet de mieux visualiser ce dont il s’agit :</p>
+<div align="center">
+<div class="float">
+<img src="images/Representation%20graphique%20criteres%20agregation%20clustering.png" alt="Representation graphique de 3 critères d’agrégation" />
+<div class="figcaption">Representation graphique de 3 critères d’agrégation</div>
 </div>
-<div id="enregistrement-des-tables" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Enregistrement des tables<a href="04-Récapitulatif.html#enregistrement-des-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Et voilà, on a bien “trituré” ces deux bases de données, maintenant on peut les enregistrer dans notre projet pour pouvoir les réutiliser lors de la prochaine séance.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="04-Récapitulatif.html#cb80-1" tabindex="-1"></a><span class="co"># On enregistre les tables de données pour les utiliser ultérieurement</span></span>
-<span id="cb80-2"><a href="04-Récapitulatif.html#cb80-2" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> RP_final,  <span class="at">file =</span> <span class="st">&quot;data/RP_final.Rdata&quot;</span>)</span>
-<span id="cb80-3"><a href="04-Récapitulatif.html#cb80-3" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> meta,  <span class="at">file =</span> <span class="st">&quot;data/meta.Rdata&quot;</span>)</span>
-<span id="cb80-4"><a href="04-Récapitulatif.html#cb80-4" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> dvf_Paris, <span class="at">file =</span> <span class="st">&quot;data/dvf_Paris_1.Rdata&quot;</span>) </span></code></pre></div>
+<div align="center">
+<p><em>Source : document de cours accessible ici <a href="https://r.developpez.com/tutoriels/programmation-graphe/livre-R-et-espace/?page=chapitre-7-methodes-de-classification" class="uri">https://r.developpez.com/tutoriels/programmation-graphe/livre-R-et-espace/?page=chapitre-7-methodes-de-classification</a></em></p>
+<div align="justify">
+<p>On doit ainsi aboutir à un arbre appelé <em>dendogramme</em>, dont le haut ou la “racine” est constituée d’une unique classe/cluster qui rassemble tous les individus, alors que le bas (l’ensemble des “feuilles”) constituent des clusters à un individu donc avec une homogénéité, par définition parfaite. Selon la méthode d’agrégation utilisée, les dendogrammes pourront avoir des formes bien différentes (c’est ce que nous verrons dans l’exemple d’application), il ne faut donc pas hésiter à tester différentes méthodes pour rendre plus robuste le résultat final c’est-à-dire la classification, en gros elle sera robuste si le “haut” de l’arbre ne change pas trop (= on a toujours les même 3 ou 4 ou 5 grosses classes).</p>
+<p>Un exemple d’application d’un clustering hiérarchique avec 7 individus, basée sur une distance euclidienne et la méthode de Ward, est disponible <a href="http://perso.ens-lyon.fr/lise.vaudor/classification-ascendante-hierarchique/" target="_blank">ici</a>.</p>
+<div align="justify">
+</div>
+<div id="la-méthode-des-centres-mobiles-et-sa-variante-les-k-means" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> La méthode des centres mobiles et sa variante, <em>les K-means</em><a href="11-Clustering-theorique.html#la-méthode-des-centres-mobiles-et-sa-variante-les-k-means" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div align="justify">
+<p>L’objectif est cette fois de construire une partition d’une population en <em>k</em> “clusters”, ce nombre <em>k</em> étant fixé avant ou <em>a priori</em>. C’est la principale différence en réalité par rapport à la méthode précédente, et le résultat en sera une partition unique des données (contrairement à la CAH qui donne une sorte de hiérarchie de partitions avec le dendogramme, à partir de laquelle il faut choisir le nombre de classes).</p>
+<p>L’algorithme des <strong>centres mobiles</strong> repose sur un processus itératif de plusieurs étapes : on détermine aléatoirement (c’est-à-dire au hasard) <em>k</em> individus/observations comme centres provisoires de classes, et on affecte chaque individu à la classe dont le centre est le plus proche, ce qui crée une première partition ; ensuite, on procède à un nouveau calcul des centres de gravité des classes de cette première partition, on redistribue les individus dans la classe dont le centre est le plus proche, ce qui permet d’aboutir à une seconde partition alternative ; on répète ce processus jusqu’à convergence (selon un critère que l’on peut définir), c’est-à-dire jusqu’à ce qu’aucun individu ne change de classe, ou lorsque l’inertie intra-classe ne diminue plus, ou encore lorsque les centres de classes sont stables, ou lorsque tout simplement on a atteint le nombre d’itérations que l’on avait fixé. Il y a donc, ici aussi (mais plus implicitement), une minimisation de l’inertie intra-classe. Une variante est qu’une actualisation ou un recalcul des centres de classe peut être fait dès qu’un individu change de classe ; néanmoins dans cette variance, l’ordre des individus joue dans le résultat final.<br />
+Voici une représentation graphique illustrant la méthode :
+<img src="images/Representation%20graphique%20Centres%20mobiles-Kmeans.png" alt="Representation graphique Centres mobiles-Kmeans" /></p>
+<p>Légèrement différente, la méthode des <em>k-means</em> va recalculer le centre de classe à chaque fois qu’un nouvel individu y est introduit, alors que précédemment on attendait que tous les individus soient affectés dans des groupes pour recalculer le centre de classe. Le nouveau calcul du cente de classe est donc ici effectué dès qu’un individu change de classe.</p>
+<p>L’une des limites de cette méthode (et sa variante) est que la partition finale, résultat de ce processus itératif, dépend souvent des centres initiaux de classes qui ont été choisis, c’est pourquoi en pratique il est préférable d’exécuter plusieurs fois la procédure, et comme précédemment de choisir la partition la plus stable/robuste.</p>
+<p>Cette méthode est souvent utilisée lorsque l’on a de grosses bases de données sur lesquelles faire tourner une CAH est très coûteuse en temps ; toutefois, le fait de devoir répéter plusieurs fois la procédure jusqu’à stabilité des classes peut atténuer cette avantage de rapidité de calcul pour les grandes bases. On peut l’utiliser aussi <em>en complément</em> d’une CAH là aussi sur de grosses bases de données, plus précisément comme étape préalable à une CAH, l’idée étant de choisir un très grand nombre de centres de classes pour réaliser la CAH sur ces centres considérés comme les individus, et ensuite aboutir à un nombre plus petit de classes finales, c’est ce qu’on appelle la méthode de classification ou <em>clustering mixte</em>.</p>
+<div align="justify">
 
 </div>
 </div>
 
 
 
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Attention néanmoins à l’usage du terme “classification” car en anglais et dans la plupart des ouvrages de Data Science et de Machine Learning, ce terme renvoie aux techniques d’analyse prédictive dont la variable cible (d’intérêt) est qualitative (en opposition aux régressions pour lesquelles la variable cible est quantitative). L’usage du terme “clustering” est ainsi privilégié.<a href="11-Clustering-theorique.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
 <script src="js/tidyverse.js"></script>
             </section>
 
           </div>
         </div>
       </div>
-<a href="03-Manipulation-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="05-Questions-fouille-donnees.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="10-Intro-a-Shiny-exemples.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -339,7 +385,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Camille-Sisi/Data-Mining-2024/master/04-Récapitulatif.Rmd",
+"link": "https://github.com/Camille-Sisi/Data-Mining-2024/master/11-Clustering-theorique.Rmd",
 "text": "Source"
 },
 "history": {

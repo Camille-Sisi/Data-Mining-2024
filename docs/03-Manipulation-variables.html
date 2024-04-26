@@ -249,6 +249,12 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="11.2" data-path="10-Intro-a-Shiny-exemples.html"><a href="10-Intro-a-Shiny-exemples.html#introduction-dune-réactivité-appliquée-à-la-table-de-données"><i class="fa fa-check"></i><b>11.2</b> Introduction d’une réactivité appliquée à la table de données</a></li>
 <li class="chapter" data-level="11.3" data-path="10-Intro-a-Shiny-exemples.html"><a href="10-Intro-a-Shiny-exemples.html#introduction-dune-réactivité-sur-les-inputs-contexte-réactif"><i class="fa fa-check"></i><b>11.3</b> Introduction d’une réactivité sur les inputs (contexte réactif)</a></li>
 </ul></li>
+<li class="part"><span><b>Séance 5 : Data Mining - Clustering</b></span></li>
+<li class="chapter" data-level="12" data-path="11-Clustering-theorique.html"><a href="11-Clustering-theorique.html"><i class="fa fa-check"></i><b>12</b> Clustering : aspects théoriques</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="11-Clustering-theorique.html"><a href="11-Clustering-theorique.html#la-classification-ascendante-hiérarchique-cah"><i class="fa fa-check"></i><b>12.1</b> La classification ascendante hiérarchique (CAH)</a></li>
+<li class="chapter" data-level="12.2" data-path="11-Clustering-theorique.html"><a href="11-Clustering-theorique.html#la-méthode-des-centres-mobiles-et-sa-variante-les-k-means"><i class="fa fa-check"></i><b>12.2</b> La méthode des centres mobiles et sa variante, <em>les K-means</em></a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -313,23 +319,23 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>On peut enfin vérifier quelles sont les variables numériques qui restent :</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="03-Manipulation-variables.html#cb23-1" tabindex="-1"></a><span class="co"># RP_final %&gt;% select_if(is.numeric) %&gt;% head() %&gt;% gt()</span></span>
 <span id="cb23-2"><a href="03-Manipulation-variables.html#cb23-2" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div>
-<div id="sotsrkbuzz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sotsrkbuzz table {
+<div id="orrqbhpyfn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#orrqbhpyfn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sotsrkbuzz thead, #sotsrkbuzz tbody, #sotsrkbuzz tfoot, #sotsrkbuzz tr, #sotsrkbuzz td, #sotsrkbuzz th {
+#orrqbhpyfn thead, #orrqbhpyfn tbody, #orrqbhpyfn tfoot, #orrqbhpyfn tr, #orrqbhpyfn td, #orrqbhpyfn th {
   border-style: none;
 }
 
-#sotsrkbuzz p {
+#orrqbhpyfn p {
   margin: 0;
   padding: 0;
 }
 
-#sotsrkbuzz .gt_table {
+#orrqbhpyfn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -355,12 +361,12 @@ code span.wa { color: #bf0303; } /* Warning */
   border-left-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_caption {
+#orrqbhpyfn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sotsrkbuzz .gt_title {
+#orrqbhpyfn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -372,7 +378,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-bottom-width: 0;
 }
 
-#sotsrkbuzz .gt_subtitle {
+#orrqbhpyfn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -384,7 +390,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-top-width: 0;
 }
 
-#sotsrkbuzz .gt_heading {
+#orrqbhpyfn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -396,13 +402,13 @@ code span.wa { color: #bf0303; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_bottom_border {
+#orrqbhpyfn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_col_headings {
+#orrqbhpyfn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -417,7 +423,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_col_heading {
+#orrqbhpyfn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -437,7 +443,7 @@ code span.wa { color: #bf0303; } /* Warning */
   overflow-x: hidden;
 }
 
-#sotsrkbuzz .gt_column_spanner_outer {
+#orrqbhpyfn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -449,15 +455,15 @@ code span.wa { color: #bf0303; } /* Warning */
   padding-right: 4px;
 }
 
-#sotsrkbuzz .gt_column_spanner_outer:first-child {
+#orrqbhpyfn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sotsrkbuzz .gt_column_spanner_outer:last-child {
+#orrqbhpyfn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sotsrkbuzz .gt_column_spanner {
+#orrqbhpyfn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -469,11 +475,11 @@ code span.wa { color: #bf0303; } /* Warning */
   width: 100%;
 }
 
-#sotsrkbuzz .gt_spanner_row {
+#orrqbhpyfn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sotsrkbuzz .gt_group_heading {
+#orrqbhpyfn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -499,7 +505,7 @@ code span.wa { color: #bf0303; } /* Warning */
   text-align: left;
 }
 
-#sotsrkbuzz .gt_empty_group_heading {
+#orrqbhpyfn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -514,15 +520,15 @@ code span.wa { color: #bf0303; } /* Warning */
   vertical-align: middle;
 }
 
-#sotsrkbuzz .gt_from_md > :first-child {
+#orrqbhpyfn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sotsrkbuzz .gt_from_md > :last-child {
+#orrqbhpyfn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sotsrkbuzz .gt_row {
+#orrqbhpyfn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -541,7 +547,7 @@ code span.wa { color: #bf0303; } /* Warning */
   overflow-x: hidden;
 }
 
-#sotsrkbuzz .gt_stub {
+#orrqbhpyfn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -554,7 +560,7 @@ code span.wa { color: #bf0303; } /* Warning */
   padding-right: 5px;
 }
 
-#sotsrkbuzz .gt_stub_row_group {
+#orrqbhpyfn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -568,15 +574,15 @@ code span.wa { color: #bf0303; } /* Warning */
   vertical-align: top;
 }
 
-#sotsrkbuzz .gt_row_group_first td {
+#orrqbhpyfn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sotsrkbuzz .gt_row_group_first th {
+#orrqbhpyfn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sotsrkbuzz .gt_summary_row {
+#orrqbhpyfn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -586,16 +592,16 @@ code span.wa { color: #bf0303; } /* Warning */
   padding-right: 5px;
 }
 
-#sotsrkbuzz .gt_first_summary_row {
+#orrqbhpyfn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_first_summary_row.thick {
+#orrqbhpyfn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sotsrkbuzz .gt_last_summary_row {
+#orrqbhpyfn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -605,7 +611,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_grand_summary_row {
+#orrqbhpyfn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -615,7 +621,7 @@ code span.wa { color: #bf0303; } /* Warning */
   padding-right: 5px;
 }
 
-#sotsrkbuzz .gt_first_grand_summary_row {
+#orrqbhpyfn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -625,7 +631,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-top-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_last_grand_summary_row_top {
+#orrqbhpyfn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -635,11 +641,11 @@ code span.wa { color: #bf0303; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_striped {
+#orrqbhpyfn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sotsrkbuzz .gt_table_body {
+#orrqbhpyfn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -648,7 +654,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-bottom-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_footnotes {
+#orrqbhpyfn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -662,7 +668,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_footnote {
+#orrqbhpyfn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -671,7 +677,7 @@ code span.wa { color: #bf0303; } /* Warning */
   padding-right: 5px;
 }
 
-#sotsrkbuzz .gt_sourcenotes {
+#orrqbhpyfn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -685,7 +691,7 @@ code span.wa { color: #bf0303; } /* Warning */
   border-right-color: #D3D3D3;
 }
 
-#sotsrkbuzz .gt_sourcenote {
+#orrqbhpyfn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -693,63 +699,63 @@ code span.wa { color: #bf0303; } /* Warning */
   padding-right: 5px;
 }
 
-#sotsrkbuzz .gt_left {
+#orrqbhpyfn .gt_left {
   text-align: left;
 }
 
-#sotsrkbuzz .gt_center {
+#orrqbhpyfn .gt_center {
   text-align: center;
 }
 
-#sotsrkbuzz .gt_right {
+#orrqbhpyfn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sotsrkbuzz .gt_font_normal {
+#orrqbhpyfn .gt_font_normal {
   font-weight: normal;
 }
 
-#sotsrkbuzz .gt_font_bold {
+#orrqbhpyfn .gt_font_bold {
   font-weight: bold;
 }
 
-#sotsrkbuzz .gt_font_italic {
+#orrqbhpyfn .gt_font_italic {
   font-style: italic;
 }
 
-#sotsrkbuzz .gt_super {
+#orrqbhpyfn .gt_super {
   font-size: 65%;
 }
 
-#sotsrkbuzz .gt_footnote_marks {
+#orrqbhpyfn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sotsrkbuzz .gt_asterisk {
+#orrqbhpyfn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sotsrkbuzz .gt_indent_1 {
+#orrqbhpyfn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sotsrkbuzz .gt_indent_2 {
+#orrqbhpyfn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sotsrkbuzz .gt_indent_3 {
+#orrqbhpyfn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sotsrkbuzz .gt_indent_4 {
+#orrqbhpyfn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sotsrkbuzz .gt_indent_5 {
+#orrqbhpyfn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -906,14 +912,14 @@ code span.wa { color: #bf0303; } /* Warning */
  122    : 127564               5: 311836   940721 :   7834   5:   1091  
  250    :  99733               6: 664558   921011 :   7686   Z:  34562  
  (Other): 192626               Z:1432384   (Other):2545871              
- TYPL        WC         
- 1: 330946   X:  34562  
- 2:2220098   Z:2601471  
- 3:  25394              
- 4:  15607              
- 5:   1942              
- 6:   7484              
- Z:  34562              </code></pre>
+ TYPL        WC              COM           
+ 1: 330946   X:  34562   Length:2636033    
+ 2:2220098   Z:2601471   Class :character  
+ 3:  25394               Mode  :character  
+ 4:  15607                                 
+ 5:   1942                                 
+ 6:   7484                                 
+ Z:  34562                                 </code></pre>
 <p>Mais attention, le problème ici est que cela nous donne des fréquences non pondérées pour l’ensemble de nos variables qualitatives, donc qui n’ont finalement pas grand sens.</p>
 <div id="manipulation-des-variables-qualitatives" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Manipulation des variables qualitatives<a href="03-Manipulation-variables.html#manipulation-des-variables-qualitatives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1017,23 +1023,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <p>Une fois copiée dans le dossier “data/” de notre projet, ouvrons cette base de données et commençons l’exploration des variables de cette base et de leurs valeurs manquantes :</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="03-Manipulation-variables.html#cb43-1" tabindex="-1"></a>dvf_Paris <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span><span class="st">&quot;data/dvf_Paris.Rdata&quot;</span>)</span>
 <span id="cb43-2"><a href="03-Manipulation-variables.html#cb43-2" tabindex="-1"></a>dvf_Paris <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div>
-<div id="drvamdkgkr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#drvamdkgkr table {
+<div id="zbiuztjmnb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zbiuztjmnb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#drvamdkgkr thead, #drvamdkgkr tbody, #drvamdkgkr tfoot, #drvamdkgkr tr, #drvamdkgkr td, #drvamdkgkr th {
+#zbiuztjmnb thead, #zbiuztjmnb tbody, #zbiuztjmnb tfoot, #zbiuztjmnb tr, #zbiuztjmnb td, #zbiuztjmnb th {
   border-style: none;
 }
 
-#drvamdkgkr p {
+#zbiuztjmnb p {
   margin: 0;
   padding: 0;
 }
 
-#drvamdkgkr .gt_table {
+#zbiuztjmnb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1059,12 +1065,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_caption {
+#zbiuztjmnb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#drvamdkgkr .gt_title {
+#zbiuztjmnb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1076,7 +1082,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#drvamdkgkr .gt_subtitle {
+#zbiuztjmnb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1088,7 +1094,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#drvamdkgkr .gt_heading {
+#zbiuztjmnb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1100,13 +1106,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_bottom_border {
+#zbiuztjmnb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_col_headings {
+#zbiuztjmnb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1121,7 +1127,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_col_heading {
+#zbiuztjmnb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1141,7 +1147,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#drvamdkgkr .gt_column_spanner_outer {
+#zbiuztjmnb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1153,15 +1159,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#drvamdkgkr .gt_column_spanner_outer:first-child {
+#zbiuztjmnb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#drvamdkgkr .gt_column_spanner_outer:last-child {
+#zbiuztjmnb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#drvamdkgkr .gt_column_spanner {
+#zbiuztjmnb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1173,11 +1179,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#drvamdkgkr .gt_spanner_row {
+#zbiuztjmnb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#drvamdkgkr .gt_group_heading {
+#zbiuztjmnb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1203,7 +1209,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#drvamdkgkr .gt_empty_group_heading {
+#zbiuztjmnb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1218,15 +1224,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#drvamdkgkr .gt_from_md > :first-child {
+#zbiuztjmnb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#drvamdkgkr .gt_from_md > :last-child {
+#zbiuztjmnb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#drvamdkgkr .gt_row {
+#zbiuztjmnb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1245,7 +1251,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#drvamdkgkr .gt_stub {
+#zbiuztjmnb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1258,7 +1264,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#drvamdkgkr .gt_stub_row_group {
+#zbiuztjmnb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1272,15 +1278,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#drvamdkgkr .gt_row_group_first td {
+#zbiuztjmnb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#drvamdkgkr .gt_row_group_first th {
+#zbiuztjmnb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#drvamdkgkr .gt_summary_row {
+#zbiuztjmnb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1290,16 +1296,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#drvamdkgkr .gt_first_summary_row {
+#zbiuztjmnb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_first_summary_row.thick {
+#zbiuztjmnb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#drvamdkgkr .gt_last_summary_row {
+#zbiuztjmnb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1309,7 +1315,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_grand_summary_row {
+#zbiuztjmnb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1319,7 +1325,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#drvamdkgkr .gt_first_grand_summary_row {
+#zbiuztjmnb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1329,7 +1335,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_last_grand_summary_row_top {
+#zbiuztjmnb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1339,11 +1345,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_striped {
+#zbiuztjmnb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#drvamdkgkr .gt_table_body {
+#zbiuztjmnb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1352,7 +1358,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_footnotes {
+#zbiuztjmnb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1366,7 +1372,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_footnote {
+#zbiuztjmnb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1375,7 +1381,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#drvamdkgkr .gt_sourcenotes {
+#zbiuztjmnb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1389,7 +1395,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#drvamdkgkr .gt_sourcenote {
+#zbiuztjmnb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1397,63 +1403,63 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#drvamdkgkr .gt_left {
+#zbiuztjmnb .gt_left {
   text-align: left;
 }
 
-#drvamdkgkr .gt_center {
+#zbiuztjmnb .gt_center {
   text-align: center;
 }
 
-#drvamdkgkr .gt_right {
+#zbiuztjmnb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#drvamdkgkr .gt_font_normal {
+#zbiuztjmnb .gt_font_normal {
   font-weight: normal;
 }
 
-#drvamdkgkr .gt_font_bold {
+#zbiuztjmnb .gt_font_bold {
   font-weight: bold;
 }
 
-#drvamdkgkr .gt_font_italic {
+#zbiuztjmnb .gt_font_italic {
   font-style: italic;
 }
 
-#drvamdkgkr .gt_super {
+#zbiuztjmnb .gt_super {
   font-size: 65%;
 }
 
-#drvamdkgkr .gt_footnote_marks {
+#zbiuztjmnb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#drvamdkgkr .gt_asterisk {
+#zbiuztjmnb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#drvamdkgkr .gt_indent_1 {
+#zbiuztjmnb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#drvamdkgkr .gt_indent_2 {
+#zbiuztjmnb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#drvamdkgkr .gt_indent_3 {
+#zbiuztjmnb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#drvamdkgkr .gt_indent_4 {
+#zbiuztjmnb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#drvamdkgkr .gt_indent_5 {
+#zbiuztjmnb .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1823,23 +1829,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <span id="cb68-3"><a href="03-Manipulation-variables.html#cb68-3" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(valeur_fonciere, nombre_pieces_principales, </span>
 <span id="cb68-4"><a href="03-Manipulation-variables.html#cb68-4" tabindex="-1"></a>                    surface_reelle_bati, px_m2, nombre_lots,</span>
 <span id="cb68-5"><a href="03-Manipulation-variables.html#cb68-5" tabindex="-1"></a>                    <span class="at">show=</span><span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;min&quot;</span>, <span class="st">&quot;max&quot;</span>,<span class="st">&quot;q1&quot;</span>, <span class="st">&quot;q3&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div>
-<div id="jihqhnctxv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jihqhnctxv table {
+<div id="ygcoldigfd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ygcoldigfd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jihqhnctxv thead, #jihqhnctxv tbody, #jihqhnctxv tfoot, #jihqhnctxv tr, #jihqhnctxv td, #jihqhnctxv th {
+#ygcoldigfd thead, #ygcoldigfd tbody, #ygcoldigfd tfoot, #ygcoldigfd tr, #ygcoldigfd td, #ygcoldigfd th {
   border-style: none;
 }
 
-#jihqhnctxv p {
+#ygcoldigfd p {
   margin: 0;
   padding: 0;
 }
 
-#jihqhnctxv .gt_table {
+#ygcoldigfd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1865,12 +1871,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_caption {
+#ygcoldigfd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jihqhnctxv .gt_title {
+#ygcoldigfd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1882,7 +1888,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#jihqhnctxv .gt_subtitle {
+#ygcoldigfd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1894,7 +1900,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#jihqhnctxv .gt_heading {
+#ygcoldigfd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1906,13 +1912,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_bottom_border {
+#ygcoldigfd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_col_headings {
+#ygcoldigfd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1927,7 +1933,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_col_heading {
+#ygcoldigfd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1947,7 +1953,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#jihqhnctxv .gt_column_spanner_outer {
+#ygcoldigfd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1959,15 +1965,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#jihqhnctxv .gt_column_spanner_outer:first-child {
+#ygcoldigfd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jihqhnctxv .gt_column_spanner_outer:last-child {
+#ygcoldigfd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jihqhnctxv .gt_column_spanner {
+#ygcoldigfd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1979,11 +1985,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#jihqhnctxv .gt_spanner_row {
+#ygcoldigfd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jihqhnctxv .gt_group_heading {
+#ygcoldigfd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2009,7 +2015,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#jihqhnctxv .gt_empty_group_heading {
+#ygcoldigfd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2024,15 +2030,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#jihqhnctxv .gt_from_md > :first-child {
+#ygcoldigfd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jihqhnctxv .gt_from_md > :last-child {
+#ygcoldigfd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jihqhnctxv .gt_row {
+#ygcoldigfd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2051,7 +2057,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#jihqhnctxv .gt_stub {
+#ygcoldigfd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2064,7 +2070,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#jihqhnctxv .gt_stub_row_group {
+#ygcoldigfd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2078,15 +2084,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#jihqhnctxv .gt_row_group_first td {
+#ygcoldigfd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jihqhnctxv .gt_row_group_first th {
+#ygcoldigfd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jihqhnctxv .gt_summary_row {
+#ygcoldigfd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2096,16 +2102,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#jihqhnctxv .gt_first_summary_row {
+#ygcoldigfd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_first_summary_row.thick {
+#ygcoldigfd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jihqhnctxv .gt_last_summary_row {
+#ygcoldigfd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2115,7 +2121,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_grand_summary_row {
+#ygcoldigfd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2125,7 +2131,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#jihqhnctxv .gt_first_grand_summary_row {
+#ygcoldigfd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2135,7 +2141,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_last_grand_summary_row_top {
+#ygcoldigfd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2145,11 +2151,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_striped {
+#ygcoldigfd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jihqhnctxv .gt_table_body {
+#ygcoldigfd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2158,7 +2164,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_footnotes {
+#ygcoldigfd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2172,7 +2178,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_footnote {
+#ygcoldigfd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2181,7 +2187,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#jihqhnctxv .gt_sourcenotes {
+#ygcoldigfd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2195,7 +2201,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#jihqhnctxv .gt_sourcenote {
+#ygcoldigfd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2203,63 +2209,63 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#jihqhnctxv .gt_left {
+#ygcoldigfd .gt_left {
   text-align: left;
 }
 
-#jihqhnctxv .gt_center {
+#ygcoldigfd .gt_center {
   text-align: center;
 }
 
-#jihqhnctxv .gt_right {
+#ygcoldigfd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jihqhnctxv .gt_font_normal {
+#ygcoldigfd .gt_font_normal {
   font-weight: normal;
 }
 
-#jihqhnctxv .gt_font_bold {
+#ygcoldigfd .gt_font_bold {
   font-weight: bold;
 }
 
-#jihqhnctxv .gt_font_italic {
+#ygcoldigfd .gt_font_italic {
   font-style: italic;
 }
 
-#jihqhnctxv .gt_super {
+#ygcoldigfd .gt_super {
   font-size: 65%;
 }
 
-#jihqhnctxv .gt_footnote_marks {
+#ygcoldigfd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jihqhnctxv .gt_asterisk {
+#ygcoldigfd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jihqhnctxv .gt_indent_1 {
+#ygcoldigfd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jihqhnctxv .gt_indent_2 {
+#ygcoldigfd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jihqhnctxv .gt_indent_3 {
+#ygcoldigfd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jihqhnctxv .gt_indent_4 {
+#ygcoldigfd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jihqhnctxv .gt_indent_5 {
+#ygcoldigfd .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2337,23 +2343,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <span id="cb70-4"><a href="03-Manipulation-variables.html#cb70-4" tabindex="-1"></a>                    <span class="at">show=</span><span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;min&quot;</span>, <span class="st">&quot;max&quot;</span>,<span class="st">&quot;q1&quot;</span>, <span class="st">&quot;q3&quot;</span>,<span class="st">&quot;iqr&quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb70-5"><a href="03-Manipulation-variables.html#cb70-5" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb70-6"><a href="03-Manipulation-variables.html#cb70-6" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">sep_mark =</span> <span class="st">&quot; &quot;</span>, <span class="at">decimals =</span> <span class="dv">1</span>)</span></code></pre></div>
-<div id="tobrecjmbt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tobrecjmbt table {
+<div id="mfvprnenyq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mfvprnenyq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tobrecjmbt thead, #tobrecjmbt tbody, #tobrecjmbt tfoot, #tobrecjmbt tr, #tobrecjmbt td, #tobrecjmbt th {
+#mfvprnenyq thead, #mfvprnenyq tbody, #mfvprnenyq tfoot, #mfvprnenyq tr, #mfvprnenyq td, #mfvprnenyq th {
   border-style: none;
 }
 
-#tobrecjmbt p {
+#mfvprnenyq p {
   margin: 0;
   padding: 0;
 }
 
-#tobrecjmbt .gt_table {
+#mfvprnenyq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2379,12 +2385,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_caption {
+#mfvprnenyq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tobrecjmbt .gt_title {
+#mfvprnenyq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2396,7 +2402,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#tobrecjmbt .gt_subtitle {
+#mfvprnenyq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2408,7 +2414,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#tobrecjmbt .gt_heading {
+#mfvprnenyq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2420,13 +2426,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_bottom_border {
+#mfvprnenyq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_col_headings {
+#mfvprnenyq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2441,7 +2447,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_col_heading {
+#mfvprnenyq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2461,7 +2467,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#tobrecjmbt .gt_column_spanner_outer {
+#mfvprnenyq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2473,15 +2479,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#tobrecjmbt .gt_column_spanner_outer:first-child {
+#mfvprnenyq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tobrecjmbt .gt_column_spanner_outer:last-child {
+#mfvprnenyq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tobrecjmbt .gt_column_spanner {
+#mfvprnenyq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2493,11 +2499,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#tobrecjmbt .gt_spanner_row {
+#mfvprnenyq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tobrecjmbt .gt_group_heading {
+#mfvprnenyq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2523,7 +2529,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#tobrecjmbt .gt_empty_group_heading {
+#mfvprnenyq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2538,15 +2544,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#tobrecjmbt .gt_from_md > :first-child {
+#mfvprnenyq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tobrecjmbt .gt_from_md > :last-child {
+#mfvprnenyq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tobrecjmbt .gt_row {
+#mfvprnenyq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2565,7 +2571,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#tobrecjmbt .gt_stub {
+#mfvprnenyq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2578,7 +2584,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#tobrecjmbt .gt_stub_row_group {
+#mfvprnenyq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2592,15 +2598,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#tobrecjmbt .gt_row_group_first td {
+#mfvprnenyq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tobrecjmbt .gt_row_group_first th {
+#mfvprnenyq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tobrecjmbt .gt_summary_row {
+#mfvprnenyq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2610,16 +2616,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#tobrecjmbt .gt_first_summary_row {
+#mfvprnenyq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_first_summary_row.thick {
+#mfvprnenyq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tobrecjmbt .gt_last_summary_row {
+#mfvprnenyq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2629,7 +2635,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_grand_summary_row {
+#mfvprnenyq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2639,7 +2645,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#tobrecjmbt .gt_first_grand_summary_row {
+#mfvprnenyq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2649,7 +2655,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_last_grand_summary_row_top {
+#mfvprnenyq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2659,11 +2665,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_striped {
+#mfvprnenyq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tobrecjmbt .gt_table_body {
+#mfvprnenyq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2672,7 +2678,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_footnotes {
+#mfvprnenyq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2686,7 +2692,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_footnote {
+#mfvprnenyq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2695,7 +2701,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#tobrecjmbt .gt_sourcenotes {
+#mfvprnenyq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2709,7 +2715,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#tobrecjmbt .gt_sourcenote {
+#mfvprnenyq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2717,63 +2723,63 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#tobrecjmbt .gt_left {
+#mfvprnenyq .gt_left {
   text-align: left;
 }
 
-#tobrecjmbt .gt_center {
+#mfvprnenyq .gt_center {
   text-align: center;
 }
 
-#tobrecjmbt .gt_right {
+#mfvprnenyq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tobrecjmbt .gt_font_normal {
+#mfvprnenyq .gt_font_normal {
   font-weight: normal;
 }
 
-#tobrecjmbt .gt_font_bold {
+#mfvprnenyq .gt_font_bold {
   font-weight: bold;
 }
 
-#tobrecjmbt .gt_font_italic {
+#mfvprnenyq .gt_font_italic {
   font-style: italic;
 }
 
-#tobrecjmbt .gt_super {
+#mfvprnenyq .gt_super {
   font-size: 65%;
 }
 
-#tobrecjmbt .gt_footnote_marks {
+#mfvprnenyq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tobrecjmbt .gt_asterisk {
+#mfvprnenyq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tobrecjmbt .gt_indent_1 {
+#mfvprnenyq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tobrecjmbt .gt_indent_2 {
+#mfvprnenyq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tobrecjmbt .gt_indent_3 {
+#mfvprnenyq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tobrecjmbt .gt_indent_4 {
+#mfvprnenyq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tobrecjmbt .gt_indent_5 {
+#mfvprnenyq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2859,23 +2865,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <span id="cb73-15"><a href="03-Manipulation-variables.html#cb73-15" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
 <span id="cb73-16"><a href="03-Manipulation-variables.html#cb73-16" tabindex="-1"></a>dvf_Paris <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(px_m2_outliers) <span class="sc">%&gt;%</span> </span>
 <span id="cb73-17"><a href="03-Manipulation-variables.html#cb73-17" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> <span class="fu">adorn_totals</span>(<span class="st">&quot;row&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div>
-<div id="dqgbmrqsku" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dqgbmrqsku table {
+<div id="utqmbuelxc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#utqmbuelxc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dqgbmrqsku thead, #dqgbmrqsku tbody, #dqgbmrqsku tfoot, #dqgbmrqsku tr, #dqgbmrqsku td, #dqgbmrqsku th {
+#utqmbuelxc thead, #utqmbuelxc tbody, #utqmbuelxc tfoot, #utqmbuelxc tr, #utqmbuelxc td, #utqmbuelxc th {
   border-style: none;
 }
 
-#dqgbmrqsku p {
+#utqmbuelxc p {
   margin: 0;
   padding: 0;
 }
 
-#dqgbmrqsku .gt_table {
+#utqmbuelxc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2901,12 +2907,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_caption {
+#utqmbuelxc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dqgbmrqsku .gt_title {
+#utqmbuelxc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2918,7 +2924,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#dqgbmrqsku .gt_subtitle {
+#utqmbuelxc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2930,7 +2936,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#dqgbmrqsku .gt_heading {
+#utqmbuelxc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2942,13 +2948,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_bottom_border {
+#utqmbuelxc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_col_headings {
+#utqmbuelxc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2963,7 +2969,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_col_heading {
+#utqmbuelxc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2983,7 +2989,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#dqgbmrqsku .gt_column_spanner_outer {
+#utqmbuelxc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2995,15 +3001,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#dqgbmrqsku .gt_column_spanner_outer:first-child {
+#utqmbuelxc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dqgbmrqsku .gt_column_spanner_outer:last-child {
+#utqmbuelxc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dqgbmrqsku .gt_column_spanner {
+#utqmbuelxc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3015,11 +3021,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#dqgbmrqsku .gt_spanner_row {
+#utqmbuelxc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dqgbmrqsku .gt_group_heading {
+#utqmbuelxc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3045,7 +3051,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#dqgbmrqsku .gt_empty_group_heading {
+#utqmbuelxc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3060,15 +3066,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#dqgbmrqsku .gt_from_md > :first-child {
+#utqmbuelxc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dqgbmrqsku .gt_from_md > :last-child {
+#utqmbuelxc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dqgbmrqsku .gt_row {
+#utqmbuelxc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3087,7 +3093,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#dqgbmrqsku .gt_stub {
+#utqmbuelxc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3100,7 +3106,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#dqgbmrqsku .gt_stub_row_group {
+#utqmbuelxc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3114,15 +3120,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#dqgbmrqsku .gt_row_group_first td {
+#utqmbuelxc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dqgbmrqsku .gt_row_group_first th {
+#utqmbuelxc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dqgbmrqsku .gt_summary_row {
+#utqmbuelxc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3132,16 +3138,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#dqgbmrqsku .gt_first_summary_row {
+#utqmbuelxc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_first_summary_row.thick {
+#utqmbuelxc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dqgbmrqsku .gt_last_summary_row {
+#utqmbuelxc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3151,7 +3157,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_grand_summary_row {
+#utqmbuelxc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3161,7 +3167,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#dqgbmrqsku .gt_first_grand_summary_row {
+#utqmbuelxc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3171,7 +3177,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_last_grand_summary_row_top {
+#utqmbuelxc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3181,11 +3187,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_striped {
+#utqmbuelxc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dqgbmrqsku .gt_table_body {
+#utqmbuelxc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3194,7 +3200,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_footnotes {
+#utqmbuelxc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3208,7 +3214,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_footnote {
+#utqmbuelxc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3217,7 +3223,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#dqgbmrqsku .gt_sourcenotes {
+#utqmbuelxc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3231,7 +3237,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#dqgbmrqsku .gt_sourcenote {
+#utqmbuelxc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3239,63 +3245,63 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#dqgbmrqsku .gt_left {
+#utqmbuelxc .gt_left {
   text-align: left;
 }
 
-#dqgbmrqsku .gt_center {
+#utqmbuelxc .gt_center {
   text-align: center;
 }
 
-#dqgbmrqsku .gt_right {
+#utqmbuelxc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dqgbmrqsku .gt_font_normal {
+#utqmbuelxc .gt_font_normal {
   font-weight: normal;
 }
 
-#dqgbmrqsku .gt_font_bold {
+#utqmbuelxc .gt_font_bold {
   font-weight: bold;
 }
 
-#dqgbmrqsku .gt_font_italic {
+#utqmbuelxc .gt_font_italic {
   font-style: italic;
 }
 
-#dqgbmrqsku .gt_super {
+#utqmbuelxc .gt_super {
   font-size: 65%;
 }
 
-#dqgbmrqsku .gt_footnote_marks {
+#utqmbuelxc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dqgbmrqsku .gt_asterisk {
+#utqmbuelxc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dqgbmrqsku .gt_indent_1 {
+#utqmbuelxc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dqgbmrqsku .gt_indent_2 {
+#utqmbuelxc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dqgbmrqsku .gt_indent_3 {
+#utqmbuelxc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dqgbmrqsku .gt_indent_4 {
+#utqmbuelxc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dqgbmrqsku .gt_indent_5 {
+#utqmbuelxc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3328,23 +3334,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <span id="cb74-3"><a href="03-Manipulation-variables.html#cb74-3" tabindex="-1"></a>         surface_reelle_bati, valeur_fonciere)  <span class="sc">%&gt;%</span> </span>
 <span id="cb74-4"><a href="03-Manipulation-variables.html#cb74-4" tabindex="-1"></a>  <span class="fu">arrange</span>(px_m2) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb74-5"><a href="03-Manipulation-variables.html#cb74-5" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div>
-<div id="vhavscnyql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vhavscnyql table {
+<div id="mwdnbzzfvb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mwdnbzzfvb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vhavscnyql thead, #vhavscnyql tbody, #vhavscnyql tfoot, #vhavscnyql tr, #vhavscnyql td, #vhavscnyql th {
+#mwdnbzzfvb thead, #mwdnbzzfvb tbody, #mwdnbzzfvb tfoot, #mwdnbzzfvb tr, #mwdnbzzfvb td, #mwdnbzzfvb th {
   border-style: none;
 }
 
-#vhavscnyql p {
+#mwdnbzzfvb p {
   margin: 0;
   padding: 0;
 }
 
-#vhavscnyql .gt_table {
+#mwdnbzzfvb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3370,12 +3376,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_caption {
+#mwdnbzzfvb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vhavscnyql .gt_title {
+#mwdnbzzfvb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3387,7 +3393,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#vhavscnyql .gt_subtitle {
+#mwdnbzzfvb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3399,7 +3405,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#vhavscnyql .gt_heading {
+#mwdnbzzfvb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3411,13 +3417,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_bottom_border {
+#mwdnbzzfvb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_col_headings {
+#mwdnbzzfvb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3432,7 +3438,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_col_heading {
+#mwdnbzzfvb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3452,7 +3458,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#vhavscnyql .gt_column_spanner_outer {
+#mwdnbzzfvb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3464,15 +3470,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#vhavscnyql .gt_column_spanner_outer:first-child {
+#mwdnbzzfvb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vhavscnyql .gt_column_spanner_outer:last-child {
+#mwdnbzzfvb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vhavscnyql .gt_column_spanner {
+#mwdnbzzfvb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3484,11 +3490,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#vhavscnyql .gt_spanner_row {
+#mwdnbzzfvb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vhavscnyql .gt_group_heading {
+#mwdnbzzfvb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3514,7 +3520,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#vhavscnyql .gt_empty_group_heading {
+#mwdnbzzfvb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3529,15 +3535,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#vhavscnyql .gt_from_md > :first-child {
+#mwdnbzzfvb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vhavscnyql .gt_from_md > :last-child {
+#mwdnbzzfvb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vhavscnyql .gt_row {
+#mwdnbzzfvb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3556,7 +3562,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#vhavscnyql .gt_stub {
+#mwdnbzzfvb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3569,7 +3575,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#vhavscnyql .gt_stub_row_group {
+#mwdnbzzfvb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3583,15 +3589,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#vhavscnyql .gt_row_group_first td {
+#mwdnbzzfvb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vhavscnyql .gt_row_group_first th {
+#mwdnbzzfvb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vhavscnyql .gt_summary_row {
+#mwdnbzzfvb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3601,16 +3607,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#vhavscnyql .gt_first_summary_row {
+#mwdnbzzfvb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_first_summary_row.thick {
+#mwdnbzzfvb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vhavscnyql .gt_last_summary_row {
+#mwdnbzzfvb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3620,7 +3626,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_grand_summary_row {
+#mwdnbzzfvb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3630,7 +3636,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#vhavscnyql .gt_first_grand_summary_row {
+#mwdnbzzfvb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3640,7 +3646,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_last_grand_summary_row_top {
+#mwdnbzzfvb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3650,11 +3656,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_striped {
+#mwdnbzzfvb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vhavscnyql .gt_table_body {
+#mwdnbzzfvb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3663,7 +3669,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_footnotes {
+#mwdnbzzfvb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3677,7 +3683,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_footnote {
+#mwdnbzzfvb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3686,7 +3692,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#vhavscnyql .gt_sourcenotes {
+#mwdnbzzfvb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3700,7 +3706,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#vhavscnyql .gt_sourcenote {
+#mwdnbzzfvb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3708,63 +3714,63 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#vhavscnyql .gt_left {
+#mwdnbzzfvb .gt_left {
   text-align: left;
 }
 
-#vhavscnyql .gt_center {
+#mwdnbzzfvb .gt_center {
   text-align: center;
 }
 
-#vhavscnyql .gt_right {
+#mwdnbzzfvb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vhavscnyql .gt_font_normal {
+#mwdnbzzfvb .gt_font_normal {
   font-weight: normal;
 }
 
-#vhavscnyql .gt_font_bold {
+#mwdnbzzfvb .gt_font_bold {
   font-weight: bold;
 }
 
-#vhavscnyql .gt_font_italic {
+#mwdnbzzfvb .gt_font_italic {
   font-style: italic;
 }
 
-#vhavscnyql .gt_super {
+#mwdnbzzfvb .gt_super {
   font-size: 65%;
 }
 
-#vhavscnyql .gt_footnote_marks {
+#mwdnbzzfvb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vhavscnyql .gt_asterisk {
+#mwdnbzzfvb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vhavscnyql .gt_indent_1 {
+#mwdnbzzfvb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vhavscnyql .gt_indent_2 {
+#mwdnbzzfvb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vhavscnyql .gt_indent_3 {
+#mwdnbzzfvb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vhavscnyql .gt_indent_4 {
+#mwdnbzzfvb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vhavscnyql .gt_indent_5 {
+#mwdnbzzfvb .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3808,23 +3814,23 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
 <span id="cb75-3"><a href="03-Manipulation-variables.html#cb75-3" tabindex="-1"></a>         surface_reelle_bati, valeur_fonciere)  <span class="sc">%&gt;%</span> </span>
 <span id="cb75-4"><a href="03-Manipulation-variables.html#cb75-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(px_m2)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb75-5"><a href="03-Manipulation-variables.html#cb75-5" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div>
-<div id="akceaoxdlf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#akceaoxdlf table {
+<div id="enexrcsprg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#enexrcsprg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#akceaoxdlf thead, #akceaoxdlf tbody, #akceaoxdlf tfoot, #akceaoxdlf tr, #akceaoxdlf td, #akceaoxdlf th {
+#enexrcsprg thead, #enexrcsprg tbody, #enexrcsprg tfoot, #enexrcsprg tr, #enexrcsprg td, #enexrcsprg th {
   border-style: none;
 }
 
-#akceaoxdlf p {
+#enexrcsprg p {
   margin: 0;
   padding: 0;
 }
 
-#akceaoxdlf .gt_table {
+#enexrcsprg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3850,12 +3856,12 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-left-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_caption {
+#enexrcsprg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#akceaoxdlf .gt_title {
+#enexrcsprg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3867,7 +3873,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-width: 0;
 }
 
-#akceaoxdlf .gt_subtitle {
+#enexrcsprg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3879,7 +3885,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-width: 0;
 }
 
-#akceaoxdlf .gt_heading {
+#enexrcsprg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3891,13 +3897,13 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_bottom_border {
+#enexrcsprg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_col_headings {
+#enexrcsprg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3912,7 +3918,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_col_heading {
+#enexrcsprg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3932,7 +3938,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#akceaoxdlf .gt_column_spanner_outer {
+#enexrcsprg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3944,15 +3950,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 4px;
 }
 
-#akceaoxdlf .gt_column_spanner_outer:first-child {
+#enexrcsprg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#akceaoxdlf .gt_column_spanner_outer:last-child {
+#enexrcsprg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#akceaoxdlf .gt_column_spanner {
+#enexrcsprg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3964,11 +3970,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   width: 100%;
 }
 
-#akceaoxdlf .gt_spanner_row {
+#enexrcsprg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#akceaoxdlf .gt_group_heading {
+#enexrcsprg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3994,7 +4000,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   text-align: left;
 }
 
-#akceaoxdlf .gt_empty_group_heading {
+#enexrcsprg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4009,15 +4015,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: middle;
 }
 
-#akceaoxdlf .gt_from_md > :first-child {
+#enexrcsprg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#akceaoxdlf .gt_from_md > :last-child {
+#enexrcsprg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#akceaoxdlf .gt_row {
+#enexrcsprg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4036,7 +4042,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   overflow-x: hidden;
 }
 
-#akceaoxdlf .gt_stub {
+#enexrcsprg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4049,7 +4055,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#akceaoxdlf .gt_stub_row_group {
+#enexrcsprg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4063,15 +4069,15 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   vertical-align: top;
 }
 
-#akceaoxdlf .gt_row_group_first td {
+#enexrcsprg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#akceaoxdlf .gt_row_group_first th {
+#enexrcsprg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#akceaoxdlf .gt_summary_row {
+#enexrcsprg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4081,16 +4087,16 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#akceaoxdlf .gt_first_summary_row {
+#enexrcsprg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_first_summary_row.thick {
+#enexrcsprg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#akceaoxdlf .gt_last_summary_row {
+#enexrcsprg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4100,7 +4106,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_grand_summary_row {
+#enexrcsprg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4110,7 +4116,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#akceaoxdlf .gt_first_grand_summary_row {
+#enexrcsprg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4120,7 +4126,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-top-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_last_grand_summary_row_top {
+#enexrcsprg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4130,11 +4136,11 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_striped {
+#enexrcsprg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#akceaoxdlf .gt_table_body {
+#enexrcsprg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4143,7 +4149,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-bottom-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_footnotes {
+#enexrcsprg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4157,7 +4163,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_footnote {
+#enexrcsprg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4166,7 +4172,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#akceaoxdlf .gt_sourcenotes {
+#enexrcsprg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4180,7 +4186,7 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   border-right-color: #D3D3D3;
 }
 
-#akceaoxdlf .gt_sourcenote {
+#enexrcsprg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4188,63 +4194,63 @@ Créer donc un tableau qui aura 3 colonnes <code>COM</code>, <code>TACT_moda</co
   padding-right: 5px;
 }
 
-#akceaoxdlf .gt_left {
+#enexrcsprg .gt_left {
   text-align: left;
 }
 
-#akceaoxdlf .gt_center {
+#enexrcsprg .gt_center {
   text-align: center;
 }
 
-#akceaoxdlf .gt_right {
+#enexrcsprg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#akceaoxdlf .gt_font_normal {
+#enexrcsprg .gt_font_normal {
   font-weight: normal;
 }
 
-#akceaoxdlf .gt_font_bold {
+#enexrcsprg .gt_font_bold {
   font-weight: bold;
 }
 
-#akceaoxdlf .gt_font_italic {
+#enexrcsprg .gt_font_italic {
   font-style: italic;
 }
 
-#akceaoxdlf .gt_super {
+#enexrcsprg .gt_super {
   font-size: 65%;
 }
 
-#akceaoxdlf .gt_footnote_marks {
+#enexrcsprg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#akceaoxdlf .gt_asterisk {
+#enexrcsprg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#akceaoxdlf .gt_indent_1 {
+#enexrcsprg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#akceaoxdlf .gt_indent_2 {
+#enexrcsprg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#akceaoxdlf .gt_indent_3 {
+#enexrcsprg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#akceaoxdlf .gt_indent_4 {
+#enexrcsprg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#akceaoxdlf .gt_indent_5 {
+#enexrcsprg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4326,23 +4332,23 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
 <span id="cb79-9"><a href="03-Manipulation-variables.html#cb79-9" tabindex="-1"></a>                                    <span class="st">&quot;Entre la moyenne et le maximum&quot;</span>))</span>
 <span id="cb79-10"><a href="03-Manipulation-variables.html#cb79-10" tabindex="-1"></a>dvf_Paris <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(px_m2_cat) <span class="sc">%&gt;%</span> <span class="fu">adorn_pct_formatting</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb79-11"><a href="03-Manipulation-variables.html#cb79-11" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;row&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div>
-<div id="ljjrpjctte" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ljjrpjctte table {
+<div id="ldgfrldtdg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ldgfrldtdg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ljjrpjctte thead, #ljjrpjctte tbody, #ljjrpjctte tfoot, #ljjrpjctte tr, #ljjrpjctte td, #ljjrpjctte th {
+#ldgfrldtdg thead, #ldgfrldtdg tbody, #ldgfrldtdg tfoot, #ldgfrldtdg tr, #ldgfrldtdg td, #ldgfrldtdg th {
   border-style: none;
 }
 
-#ljjrpjctte p {
+#ldgfrldtdg p {
   margin: 0;
   padding: 0;
 }
 
-#ljjrpjctte .gt_table {
+#ldgfrldtdg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4368,12 +4374,12 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-left-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_caption {
+#ldgfrldtdg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ljjrpjctte .gt_title {
+#ldgfrldtdg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4385,7 +4391,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-bottom-width: 0;
 }
 
-#ljjrpjctte .gt_subtitle {
+#ldgfrldtdg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4397,7 +4403,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-top-width: 0;
 }
 
-#ljjrpjctte .gt_heading {
+#ldgfrldtdg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4409,13 +4415,13 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-right-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_bottom_border {
+#ldgfrldtdg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_col_headings {
+#ldgfrldtdg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4430,7 +4436,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-right-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_col_heading {
+#ldgfrldtdg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4450,7 +4456,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   overflow-x: hidden;
 }
 
-#ljjrpjctte .gt_column_spanner_outer {
+#ldgfrldtdg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4462,15 +4468,15 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   padding-right: 4px;
 }
 
-#ljjrpjctte .gt_column_spanner_outer:first-child {
+#ldgfrldtdg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ljjrpjctte .gt_column_spanner_outer:last-child {
+#ldgfrldtdg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ljjrpjctte .gt_column_spanner {
+#ldgfrldtdg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4482,11 +4488,11 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   width: 100%;
 }
 
-#ljjrpjctte .gt_spanner_row {
+#ldgfrldtdg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ljjrpjctte .gt_group_heading {
+#ldgfrldtdg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4512,7 +4518,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   text-align: left;
 }
 
-#ljjrpjctte .gt_empty_group_heading {
+#ldgfrldtdg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4527,15 +4533,15 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   vertical-align: middle;
 }
 
-#ljjrpjctte .gt_from_md > :first-child {
+#ldgfrldtdg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ljjrpjctte .gt_from_md > :last-child {
+#ldgfrldtdg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ljjrpjctte .gt_row {
+#ldgfrldtdg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4554,7 +4560,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   overflow-x: hidden;
 }
 
-#ljjrpjctte .gt_stub {
+#ldgfrldtdg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4567,7 +4573,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   padding-right: 5px;
 }
 
-#ljjrpjctte .gt_stub_row_group {
+#ldgfrldtdg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4581,15 +4587,15 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   vertical-align: top;
 }
 
-#ljjrpjctte .gt_row_group_first td {
+#ldgfrldtdg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ljjrpjctte .gt_row_group_first th {
+#ldgfrldtdg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ljjrpjctte .gt_summary_row {
+#ldgfrldtdg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4599,16 +4605,16 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   padding-right: 5px;
 }
 
-#ljjrpjctte .gt_first_summary_row {
+#ldgfrldtdg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_first_summary_row.thick {
+#ldgfrldtdg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ljjrpjctte .gt_last_summary_row {
+#ldgfrldtdg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4618,7 +4624,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-bottom-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_grand_summary_row {
+#ldgfrldtdg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4628,7 +4634,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   padding-right: 5px;
 }
 
-#ljjrpjctte .gt_first_grand_summary_row {
+#ldgfrldtdg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4638,7 +4644,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-top-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_last_grand_summary_row_top {
+#ldgfrldtdg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4648,11 +4654,11 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-bottom-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_striped {
+#ldgfrldtdg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ljjrpjctte .gt_table_body {
+#ldgfrldtdg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4661,7 +4667,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-bottom-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_footnotes {
+#ldgfrldtdg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4675,7 +4681,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-right-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_footnote {
+#ldgfrldtdg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4684,7 +4690,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   padding-right: 5px;
 }
 
-#ljjrpjctte .gt_sourcenotes {
+#ldgfrldtdg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4698,7 +4704,7 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   border-right-color: #D3D3D3;
 }
 
-#ljjrpjctte .gt_sourcenote {
+#ldgfrldtdg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4706,63 +4712,63 @@ Sinon, on les isole en créant une variable dichotomique “0/1” ou “Faux/Vr
   padding-right: 5px;
 }
 
-#ljjrpjctte .gt_left {
+#ldgfrldtdg .gt_left {
   text-align: left;
 }
 
-#ljjrpjctte .gt_center {
+#ldgfrldtdg .gt_center {
   text-align: center;
 }
 
-#ljjrpjctte .gt_right {
+#ldgfrldtdg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ljjrpjctte .gt_font_normal {
+#ldgfrldtdg .gt_font_normal {
   font-weight: normal;
 }
 
-#ljjrpjctte .gt_font_bold {
+#ldgfrldtdg .gt_font_bold {
   font-weight: bold;
 }
 
-#ljjrpjctte .gt_font_italic {
+#ldgfrldtdg .gt_font_italic {
   font-style: italic;
 }
 
-#ljjrpjctte .gt_super {
+#ldgfrldtdg .gt_super {
   font-size: 65%;
 }
 
-#ljjrpjctte .gt_footnote_marks {
+#ldgfrldtdg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ljjrpjctte .gt_asterisk {
+#ldgfrldtdg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ljjrpjctte .gt_indent_1 {
+#ldgfrldtdg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ljjrpjctte .gt_indent_2 {
+#ldgfrldtdg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ljjrpjctte .gt_indent_3 {
+#ldgfrldtdg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ljjrpjctte .gt_indent_4 {
+#ldgfrldtdg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ljjrpjctte .gt_indent_5 {
+#ldgfrldtdg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

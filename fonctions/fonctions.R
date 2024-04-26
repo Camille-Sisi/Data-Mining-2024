@@ -35,3 +35,25 @@ somme <- function(data, var_gpe, nom_var){
   return(som)
   
 }
+
+
+tab_n <- function(data, ..., nom_var, var, prefix_var) {
+  data %>% 
+    group_by(...) %>%
+    summarise({{ nom_var }} := round(sum(IPONDI))) %>% 
+    pivot_wider(names_from = {{ var }}, values_from = {{ nom_var }},
+                values_fill = 0, names_prefix = prefix_var)
+  
+  return(tab_n)
+}
+
+
+Tabcr_pctcol <- function(data, var1, var2, pond=IPONDI, nom_var1="classe"){
+  tabcroisefin <- data %>% group_by({{var2}})  %>% 
+    count({{var1}}, wt={{pond}}) %>% pivot_wider(names_from = {{var1}}, values_from = "n", names_prefix = paste0(nom_var1,"_")) %>% 
+    adorn_totals(c("row",'col')) %>% adorn_percentages("col") %>% adorn_pct_formatting(digits=2) 
+  
+  return(tabcroisefin)
+}
+  
+  

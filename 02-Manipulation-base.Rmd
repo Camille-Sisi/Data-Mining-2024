@@ -119,6 +119,7 @@ saveRDS(object = meta, file = "data/meta.Rdata")
 rm(RP)
 # Appel de la table RP_final
 RP_final <- readRDS(file ="data/RP_final.Rdata") 
+RP <- readRDS(file ="data/indiv2019.Rdata") 
 ```
 
 

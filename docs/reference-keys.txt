@@ -57,3 +57,6 @@ applications-plus-poussées-sur-shiny
 application-avec-un-tableau-et-un-graphique-sur-une-autre-base-de-données
 introduction-dune-réactivité-appliquée-à-la-table-de-données
 introduction-dune-réactivité-sur-les-inputs-contexte-réactif
+c11-Clustering-theorique
+la-classification-ascendante-hiérarchique-cah
+la-méthode-des-centres-mobiles-et-sa-variante-les-k-means
