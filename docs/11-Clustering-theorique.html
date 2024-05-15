@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Section 12 Clustering : aspects théoriques | DATA MINING</title>
   <meta name="description" content="Titre du cours" />
-  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Section 12 Clustering : aspects théoriques | DATA MINING" />
   <meta property="og:type" content="book" />
@@ -62,7 +62,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -249,7 +249,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="11.2" data-path="10-Intro-a-Shiny-exemples.html"><a href="10-Intro-a-Shiny-exemples.html#introduction-dune-réactivité-appliquée-à-la-table-de-données"><i class="fa fa-check"></i><b>11.2</b> Introduction d’une réactivité appliquée à la table de données</a></li>
 <li class="chapter" data-level="11.3" data-path="10-Intro-a-Shiny-exemples.html"><a href="10-Intro-a-Shiny-exemples.html#introduction-dune-réactivité-sur-les-inputs-contexte-réactif"><i class="fa fa-check"></i><b>11.3</b> Introduction d’une réactivité sur les inputs (contexte réactif)</a></li>
 </ul></li>
-<li class="part"><span><b>Séance 5 : Data Mining - Clustering</b></span></li>
+<li class="part"><span><b>Séance 6 : Data Mining - Clustering</b></span></li>
 <li class="chapter" data-level="12" data-path="11-Clustering-theorique.html"><a href="11-Clustering-theorique.html"><i class="fa fa-check"></i><b>12</b> Clustering : aspects théoriques</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="11-Clustering-theorique.html"><a href="11-Clustering-theorique.html#la-classification-ascendante-hiérarchique-cah"><i class="fa fa-check"></i><b>12.1</b> La classification ascendante hiérarchique (CAH)</a></li>
@@ -303,7 +303,7 @@ Ce sont justement les algorithmes qui vont chercher à organiser les observation
 <p>Il y a en gros <strong>3 grandes étapes</strong> :</p>
 <ul>
 <li><p>une <em>première étape, facultative</em>, car cela dépend de la nature des données : on centre et réduit les variables, on dit également qu’on “standardise” les variables. Cela est indispensable quand les variables ont des unités différentes (le poids et la taille d’un individu) ; si elles ont des unités similaires (c’est notre cas ici), il faut choisir de le faire ou non. Souvent, on va choisir de “standardiser” car on peut avoir des variables avec des écarts-types importants ce qui peut créer un biais (en faveur de ces variables, c’est-à-dire en leur donnant un poids plus important dans l’analyse) lors de la construction de la matrice de distances.</p></li>
-<li><p>une <em>seconde étape consiste à créer une matrice des distances</em> (ou des dissimilarités) car la construction de l’arbre (cf. ci-dessous) repose sur les distances entre observations/individus : l’idée est de chercher les individus les plus proches ou les plus ressemblants ; on commence donc par calculer la matrice des distances des individus deux à deux, puis on rassemble les deux plus proches dans un nouvel élément ce qui crée une matrice des distances sur les n-1 individus, ensuite on réitère le processus - on crée une matrice des distances rassemblant les deux individus les plus proches dans un nouveau groupe, etc. - jusqu’à ce qu’on n’ait plus qu’un seul élément. Dans cette étape, on choisit le type de distance utilisé, c’est-à-dire le critère de ressemblance entre les individus. Sans rentrer ici plus dans les détails, la méthode de distance la plus utilisée et (ou car) la plus intuitive est la <strong>distance euclidienne</strong>. Mais par exemple, si nos variables ne sont pas mesurées en effectifs mais en proportion, il faudra plutôt utiliser la distance du khi-deux. Autre exemple, lorsque les variables seront qualitatives de type binaire (0/1), alors ce sera plutôt l’indice de similarité de Jaccard qui sera utilisé.</p></li>
+<li><p>une <em>seconde étape consiste à créer une matrice des distances</em> (ou des dissimilarités) car la construction de l’arbre (cf. ci-dessous) repose sur les distances entre observations/individus : l’idée est de chercher les individus les plus proches ou les plus ressemblants ; on commence donc par calculer la matrice des distances des individus deux à deux, puis on rassemble les deux plus proches dans un nouvel élément ce qui crée une matrice des distances sur les n-1 individus, ensuite on réitère le processus - on crée une matrice des distances rassemblant les deux individus les plus proches dans un nouveau groupe, etc. - jusqu’à ce qu’on ne dispose plus que d’un seul élément. Dans cette étape, on choisit le type de distance utilisé, c’est-à-dire le critère de ressemblance entre les individus. Sans rentrer ici plus dans les détails, la méthode de distance la plus utilisée et (ou car) la plus intuitive est la <strong>distance euclidienne</strong>. Mais par exemple, si nos variables ne sont pas mesurées en effectifs mais en proportion, il faudra plutôt utiliser la distance du khi-deux. Autre exemple, lorsque les variables seront qualitatives de type binaire (0/1), alors ce sera plutôt l’indice de similarité de Jaccard qui sera utilisé.</p></li>
 <li><p>enfin, la <em>troisième étape est la méthode d’agrégation</em> : dans la construction de la matrice de distance, après la 1ère étape (n-1 individus), ce seront progressivement des groupes d’individus dont on comparera la distance, il faut donc savoir comment calculer cette distance entre groupes (et non plus seulement entre individus) : est-ce qu’on prend le point représentant l’individu moyen du groupe ? Ou bien celui qui est à l’extrêmité du groupe ? Etc. Là aussi, il faut donc choisir cette méthode d’agrégation parmi un ensemble de méthodes (lien simple ou minimum, lien maximum, lien moyen, lien entre les centroïdes/centres de gravité ou barycentre, critère de Ward) : la plus utilisée est le critère de Ward, notamment lorsqu’on utilise une distance euclidienne dans l’étape précédente. Ce critère se base sur la décomposition de l’inertie totale (somme du carré des distances de chaque point au centre) en une inertie intraclasse et une inertie interclasse ; il consiste ensuite à minimiser la perte d’inertie intraclasse à chaque agrégation de classes, pour que les classes restent le plus homogène possible.</p></li>
 </ul>
 <p>Un schéma de 3 de ces distances permet de mieux visualiser ce dont il s’agit :</p>
