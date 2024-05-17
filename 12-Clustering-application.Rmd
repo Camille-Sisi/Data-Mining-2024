@@ -30,6 +30,7 @@ meta %>%
   select(COD_VAR, COD_MOD, LIB_MOD) %>% 
   filter(COD_VAR=="CS1")
 
+# Fonction "tableau" créée dans la section 6
 RP_final %>% filter(!AGER20 %in% c("2","5", "10","14")) %>% 
   tableau(var_quali = CS1, nom_var_quali = "PCS")
 ```

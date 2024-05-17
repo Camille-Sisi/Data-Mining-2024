@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="11-Clustering-theorique.html"/>
-
+<link rel="next" href="13-Modeles-regression.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -224,7 +224,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="8.2.5" data-path="08-Ggplot-pratique.html"><a href="08-Ggplot-pratique.html#à-vous-de-jouer"><i class="fa fa-check"></i><b>8.2.5</b> À vous de “jouer” !</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>Séance 4 : Data Visualization - Introduction à ShinyApp</b></span></li>
+<li class="part"><span><b>Séances 4 et 5 : Data Visualization - Introduction à ShinyApp</b></span></li>
 <li class="chapter" data-level="9" data-path="09-Intro-a-Shiny-theorique.html"><a href="09-Intro-a-Shiny-theorique.html"><i class="fa fa-check"></i><b>9</b> Les applications interactives avec Shiny App</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="09-Intro-a-Shiny-theorique.html"><a href="09-Intro-a-Shiny-theorique.html#la-structure-générale-dune-application-shiny"><i class="fa fa-check"></i><b>9.1</b> La structure générale d’une application Shiny</a>
@@ -269,6 +269,22 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="13.2.3" data-path="12-Clustering-application.html"><a href="12-Clustering-application.html#interprétation"><i class="fa fa-check"></i><b>13.2.3</b> Interprétation</a></li>
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="12-Clustering-application.html"><a href="12-Clustering-application.html#la-méthode-des-k-means-appliquée-à-nos-données"><i class="fa fa-check"></i><b>13.3</b> La méthode des <em>k-means</em> appliquée à nos données</a></li>
+</ul></li>
+<li class="part"><span><b>Séance 7 : Régressions/Prédictions</b></span></li>
+<li class="chapter" data-level="14" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html"><i class="fa fa-check"></i><b>14</b> Modèles de régression : application sur le RP 2019</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#la-création-des-bases-dapprentissage-et-de-test"><i class="fa fa-check"></i><b>14.1</b> La création des bases d’apprentissage et de test</a></li>
+<li class="chapter" data-level="14.2" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#un-modèle-à-visée-principale-explicative-la-régression-logistique"><i class="fa fa-check"></i><b>14.2</b> Un modèle à visée principale explicative : la régression logistique</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#le-modèle-initial"><i class="fa fa-check"></i><b>14.2.1</b> Le modèle initial</a></li>
+<li class="chapter" data-level="14.2.2" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#lévaluation-du-modèle-et-la-recherche-éventuelle-dun-meilleur-modèle"><i class="fa fa-check"></i><b>14.2.2</b> L’évaluation du modèle et la recherche éventuelle d’un “meilleur” modèle</a></li>
+<li class="chapter" data-level="14.2.3" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#le-modèle-final-et-linterprétation-des-résultats"><i class="fa fa-check"></i><b>14.2.3</b> Le modèle final et l’interprétation des résultats</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#un-modèle-à-visée-principale-prédictive-labre-de-décision"><i class="fa fa-check"></i><b>14.3</b> Un modèle à visée principale prédictive : l’abre de décision</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#le-modèle-initial-1"><i class="fa fa-check"></i><b>14.3.1</b> Le modèle initial</a></li>
+<li class="chapter" data-level="14.3.2" data-path="13-Modeles-regression.html"><a href="13-Modeles-regression.html#lévaluation-du-modèle"><i class="fa fa-check"></i><b>14.3.2</b> L’évaluation du modèle</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -321,8 +337,9 @@ Ces techniques font partie des méthodes d'apprentissage dit non supervisé, il 
 6 CS1     6       Ouvriers                                         
 7 CS1     7       Retraités                                        
 8 CS1     8       Autres personnes sans activité professionnelle   </code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="12-Clustering-application.html#cb143-1" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>AGER20 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;2&quot;</span>,<span class="st">&quot;5&quot;</span>, <span class="st">&quot;10&quot;</span>,<span class="st">&quot;14&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb143-2"><a href="12-Clustering-application.html#cb143-2" tabindex="-1"></a>  <span class="fu">tableau</span>(<span class="at">var_quali =</span> CS1, <span class="at">nom_var_quali =</span> <span class="st">&quot;PCS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="12-Clustering-application.html#cb143-1" tabindex="-1"></a><span class="co"># Fonction &quot;tableau&quot; créée dans la section 6</span></span>
+<span id="cb143-2"><a href="12-Clustering-application.html#cb143-2" tabindex="-1"></a>RP_final <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>AGER20 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;2&quot;</span>,<span class="st">&quot;5&quot;</span>, <span class="st">&quot;10&quot;</span>,<span class="st">&quot;14&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb143-3"><a href="12-Clustering-application.html#cb143-3" tabindex="-1"></a>  <span class="fu">tableau</span>(<span class="at">var_quali =</span> CS1, <span class="at">nom_var_quali =</span> <span class="st">&quot;PCS&quot;</span>)</span></code></pre></div>
 <pre><code># A tibble: 9 × 3
   PCS   Effectif Pourcentage
   &lt;fct&gt;    &lt;dbl&gt;       &lt;dbl&gt;
@@ -2255,11 +2272,6 @@ Pour lire et choisir le “bon” nombre de classes selon ce critère, il faut m
 
 
 
-
-
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="3">
@@ -2272,8 +2284,8 @@ Pour lire et choisir le “bon” nombre de classes selon ce critère, il faut m
           </div>
         </div>
       </div>
-<a href="11-Clustering-theorique.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="11-Clustering-theorique.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="13-Modeles-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,6 +1,6 @@
 
 
-# (PART\*) Séance 4 : Data Visualization - Introduction à ShinyApp {-}
+# (PART\*) Séances 4 et 5 : Data Visualization - Introduction à ShinyApp {-}
 
 
 # Les applications interactives avec Shiny App  {#c09-Intro-a-Shiny-theorique}
